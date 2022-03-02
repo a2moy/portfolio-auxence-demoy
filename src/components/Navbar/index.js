@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import styled from 'styled-components';
-
+import { Link } from "react-router-dom";
 import { A2LogoBlack } from '../Icons';
 
 const StyledNavbarContainer = styled.nav`
@@ -59,7 +58,6 @@ const StyledElementSquareBlack = styled.div`
 `
 
 const StyledText = styled.span`
-    font-family: Neue Montreal;
     font-style: normal;
     font-weight: bold;
     font-size: 15px;
@@ -67,8 +65,8 @@ const StyledText = styled.span`
     color: #040205;
 `
 
-const StyledNavigationButton = styled.div`
-    font-family: Neue Montreal;
+const StyledNavigationButton = styled(Link)`
+    text-decoration: none;
     font-style: normal;
     font-weight: bold;
     font-size: 15px;
@@ -85,10 +83,6 @@ const StyledNavigationButton = styled.div`
     }
 `
 
-const StyledIcon = styled.img`
-    color: #040205;
-`
-
 const StyledNavigationContainer = styled.div`
     display: flex;
     max-width: 327px;
@@ -103,17 +97,16 @@ const StyledTitle = styled(StyledText)`
 `
 
 const Navbar = () => {
-    const [hoveredItem, setHoveredItem] = useState(null)
     return (
         <StyledNavbarContainer>
             <StyledTopNavbar>
                 <StyledTitle>AUXENCE DEMOY</StyledTitle>
                 <StyledTitle>DIGITAL DESIGNER & ART DIRECTOR</StyledTitle>
                 <StyledNavigationContainer>
-                    <StyledNavigationButton>HOME</StyledNavigationButton>
-                    <StyledNavigationButton>PROJECT</StyledNavigationButton>
-                    <StyledNavigationButton>ABOUT</StyledNavigationButton>
-                    <StyledNavigationButton>CONTACT</StyledNavigationButton>
+                    <StyledNavigationButton to='/'>HOME</StyledNavigationButton>
+                    <StyledNavigationButton to='/projects'>PROJECT</StyledNavigationButton>
+                    <StyledNavigationButton to='/about'>ABOUT</StyledNavigationButton>
+                    <StyledNavigationButton to='/contact'>CONTACT</StyledNavigationButton>
                 </StyledNavigationContainer>
                 <A2LogoBlack width='18px' height='18px' />
             </StyledTopNavbar>

@@ -10,9 +10,8 @@ const ThemeProvider = ({ children }) => {
         // On mount
     }, [])
 
-
     return (
-        <ThemeContext.Provider value={{}}>
+        <ThemeContext.Provider value={{ activeColor, setActiveColor }}>
             {children}
         </ThemeContext.Provider>
     )

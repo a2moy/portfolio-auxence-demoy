@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import styled from 'styled-components';
 
 import { A2LogoBlack } from '../Icons'
-
 
 const StyledFooterContainer = styled.footer`
     height: 250px;
@@ -56,11 +54,10 @@ const StyledCopyrights = styled.span`
 `
 
 const Footer = () => {
-    const [hoveredItem, setHoveredItem] = useState(null)
-    // TODO: On icon click scroll to the top of the page
+    // TODO(Quentin): On icon click scroll to the top of the page
     return (
         <StyledFooterContainer>
-            <StyledFooterContainerItemIcon>
+            <StyledFooterContainerItemIcon onClick={() => {}}>
                 <A2LogoBlack width='114.59px' height='119px' />
             </StyledFooterContainerItemIcon>
             <StyledFooterContainerItemContacts>
