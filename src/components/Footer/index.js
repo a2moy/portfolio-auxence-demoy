@@ -10,7 +10,7 @@ const StyledFooterContainer = styled.footer`
     align-items: center;
     justify-content: space-evenly;
 
-    background-color: #F92607;
+    background-color: ${props => props.theme.mainColor};
 `
 
 const StyledFooterContainerItemIcon = styled.div``
