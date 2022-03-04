@@ -1,5 +1,4 @@
-const initialState = {
-    colors: {
+const COLORS = {
         red: '#F92607',
         orange: '#EA8102',
         blue: '#029CE6',
@@ -8,7 +7,7 @@ const initialState = {
         purple: '#9B31C5',
         green: '#02A710',
         white: '#FFFFFF',
-    }
-}
+};
 
-export default initialState
+
+export default COLORS;
