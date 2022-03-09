@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { A2LogoBlack } from '../Icons'
 
 const StyledFooterContainer = styled.footer`
-    height: 250px;
+    min-height: 250px;
 
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
     align-items: center;
     justify-content: space-evenly;
 
