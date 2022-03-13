@@ -17,7 +17,6 @@ const StyledNavbarContainer = styled.nav`
 
 const StyledTopNavbar = styled.div`
     background-color: ${props => props.theme.mainColor};
-    height: 68px;
     width: inherit;
     display: flex;
     align-items: center;
@@ -68,12 +67,11 @@ const StyledText = styled.span`
 
 const StyledNavigationButton = styled(Link)`
     text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
     font-size: 15px;
     line-height: 18px;
     color: #040205;
-    margin: 15.5px;
+    font-style: normal;
+    font-weight: bold;
 
     @media(max-width: 767px) {
         margin: 4.5px;
@@ -86,7 +84,7 @@ const StyledNavigationButton = styled(Link)`
 
 const StyledNavigationContainer = styled.div`
     display: flex;
-    max-width: 327px;
+    gap: 31px;
     align-items: center;
     justify-content: space-between;
 `
@@ -195,7 +193,7 @@ const ColorSelector = ({ setCurrentTheme }) => {
 const Navbar = ({ setCurrentTheme }) => {
     return (
         <StyledNavbarContainer>
-            <StyledTopNavbar>
+            <StyledTopNavbar className="neue-montreal-bold">
                 <StyledTitle>AUXENCE DEMOY</StyledTitle>
                 <StyledTitle>DIGITAL DESIGNER & ART DIRECTOR</StyledTitle>
                 <StyledNavigationContainer>
