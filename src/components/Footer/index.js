@@ -5,6 +5,7 @@ import { A2LogoBlack } from '../Icons'
 const StyledFooterContainer = styled.footer`
     min-height: 192px;
     display: flex;
+    flex-grow: 1;
     flex-direction: row;
     align-items: top;
     justify-content: space-between;
