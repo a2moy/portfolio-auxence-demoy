@@ -33,7 +33,7 @@ const StyledContainerRight = styled.div`
 
 const StyledText = styled.div`
     font-size: 36px;
-    padding: 25px 0px;
+    margin: 25px 0px;
 `
 
 const StyledTitle = styled.span`
@@ -73,7 +73,7 @@ const StyledHeadTitle = styled.div`
     line-height: 86px;
     margin-bottom: 85px;
     font-weight: bold;
-    color: ${props => props.theme.mainColor}
+    color: ${props => props.theme.mainColor};
 `
 const StyledSubtitle = styled.div`
     font-size: 18px;

@@ -1,18 +1,13 @@
-import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
-const Content = styled.div`
-    padding: 0 25px;
-    height: 500px;
-`
+import Templates from '../components/Project';
+
+import config from '../config';
 
 const ProjectsPage = () => {
     const { projectId } = useParams();
-    return (
-        <Content>
-            {projectId}
-        </Content>
-    );
+    const { templateNumber, ...data } = config.selectedWorks[projectId]
+    return Templates[`${templateNumber}`]({ ...data });
 }
 
 export default ProjectsPage;

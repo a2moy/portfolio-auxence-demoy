@@ -31,7 +31,34 @@ const config = {
             "prototyping",
             "motion design"
         ]
-    }
+    },
+    "selectedWorks": [
+        {
+            "name": "modular.lab",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "year": "2022",
+            "thumbnail": "images/Modular-lab_thumbnail.jpg",
+            "type": "3d",
+            "templateNumber": "1"
+        },
+        {
+            "name": "TMA-NALOG",
+            "description": "AIAIAI presents a unique party featuring DJs who perpetuate the authenticity of techno music. Taking the unique experience that the analog equipment put forward in the 80's offers. Come and discover unique and timeless sets.",
+            "year": "2021",
+            "thumbnail": "images/aiaiai_thumbnail.jpg",
+            "type": "branding",
+            "templateNumber": "2"
+        },
+        {
+            "name": "JO&CO",
+            "description": "Jo&Co is a multicultural music label with many vibes and artists on it, i design a website who regroup all the informations about this label, the artists, the songs ... To create a brand new identity, I made some stickers to feel the vibes about the label and the artists on this label. This identity the represent different style about Paris, London and New York.",
+            "year": "2021",
+            "thumbnail": "images/joco_thumbnail.jpg",
+            "type": "website",
+            "templateNumber": "1"
+        }
+    ],
+    "lab": []
 }
 
 export default config;
