@@ -26,7 +26,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-  
+
 /* for Firefox */
 @-moz-keyframes homepage-scroll-text {
   from { -moz-transform: translateX(100%); }
@@ -50,4 +50,11 @@ body {
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
+}
+
+.the-column {
+  position: absolute;
+  left: 63%;
+  width: 22.7%;
+  min-width: 270px;
 }

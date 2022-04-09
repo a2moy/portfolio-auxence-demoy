@@ -7,10 +7,6 @@ import COLORS from '../../colors';
 import themes from '../../theme';
 
 const StyledNavbarContainer = styled.nav`
-    margin-bottom: 90px;
-    @media(max-width: 767px) {
-        margin-bottom: 40px;
-    }
     display: flex;
     flex-direction: column;
 `
@@ -31,7 +27,7 @@ const StyledBottomNavbar = styled.div`
     height: 25px;
     width: inherit;
     display: flex;
-    justify-content: space-between;
+    background-color: #ffffff;
 `
 
 const StyledElementSquareContainer = styled.div`
@@ -72,11 +68,9 @@ const StyledNavigationButton = styled(Link)`
     color: #040205;
     font-style: normal;
     font-weight: bold;
-
     @media(max-width: 767px) {
         margin: 4.5px;
     }
-
     &:hover {
         cursor: pointer;
     }
@@ -84,7 +78,6 @@ const StyledNavigationButton = styled(Link)`
 
 const StyledNavigationContainer = styled.div`
     display: flex;
-    gap: 31px;
     align-items: center;
     justify-content: space-between;
 `
@@ -97,20 +90,23 @@ const StyledTitle = styled(StyledText)`
 
 const ColorElementsContainer = styled.div`
     display: flex;
-    gap: 8px;
     align-items: center;
-    margin-right: 90px;
+    gap: ${props => props.isOpen ? '8px' : '0px'};
+    transition: 0.1s;
 `
 
 const ColorElement = styled.span`
     background-color: ${props => props.color};
     border-radius: 50%;
-    border: 1px solid ${props => props.selected ? COLORS.black : 'transparent'};
-    width: 12px;
-    height: 12px;
-
+    border: ${props => props.isOpen ? '2px' : '0px'} solid ${props => props.selected ? COLORS.black : 'transparent'};
+    width: ${props => props.isOpen ? '12px' : '0px'};
+    height: ${props => props.isOpen ? '12px' : '0px'};
+    transition: 0.1s;
     &:hover {
         cursor: pointer;
+        transform: scale(110%);
+        transition: 0.2s;
+        border: 2px solid ${props => props.selected ? COLORS.black : '#A6A4AB'};
     }
 `
 
@@ -120,71 +116,58 @@ const StyledButton = styled.span`
     font-style: normal;
     font-weight: bold;
     font-size: 15px;
-    line-height: 18px;
-    color: #040205;
-
+    color: #A6A4AB;
+    transition: 0.1s;
     @media(max-width: 767px) {
         margin: 4.5px;
     }
-
     &:hover {
         cursor: pointer;
+        color: #040205;
+        transition: 0.2s;
     }
 `
 
 const StyledColorSelector = styled.div`
     display: flex;
-    flex-grow: 1;
-    justify-content: flex-start;
+    justify-content: space-between;
+    height: 25px;
 `
 
-const StyledTheLab = styled.div`
-    align-self: center;
-    text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
-    color: #040205;
-
-    @media(max-width: 767px) {
-        margin: 4.5px;
-    }
-
-    &:hover {
-        cursor: pointer;
-    }
-    margin-right: 90px;
+const EmptyBox = styled.div`
+    width: 22.7%;
+    height: 10px;
+    min-width: 285px;
 `
 
 const ColorSelector = ({ setCurrentTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isActive, setIsActive] = useState("red");
     return (
-        <StyledColorSelector>
-            <StyledTheLab to="/">the lab</StyledTheLab>
-            <ColorElementsContainer>
+        <StyledColorSelector className='the-column' >
+            <StyledButton to="/">the lab</StyledButton>
+            <ColorElementsContainer isOpen={isOpen}>
                 <StyledButton onClick={() => { setIsOpen(!isOpen) }}>change color</StyledButton>
                 <ColorElement selected={isActive === "red"} onClick={() => {
                     setCurrentTheme(themes.red);
                     setIsActive("red")
-                }} hidden={!isOpen} color={COLORS.red} />
+                }} isOpen={isOpen} color={COLORS.red} />
                 <ColorElement selected={isActive === "blue"} onClick={() => {
                     setCurrentTheme(themes.blue);
                     setIsActive("blue")
-                }} hidden={!isOpen} color={COLORS.blue} />
+                }} isOpen={isOpen} color={COLORS.blue} />
                 <ColorElement selected={isActive === "orange"} onClick={() => {
                     setCurrentTheme(themes.orange);
                     setIsActive("orange")
-                }} hidden={!isOpen} color={COLORS.orange} />
+                }} isOpen={isOpen} color={COLORS.orange} />
                 <ColorElement selected={isActive === "green"} onClick={() => {
                     setCurrentTheme(themes.green);
                     setIsActive("green")
-                }} hidden={!isOpen} color={COLORS.green} />
+                }} isOpen={isOpen} color={COLORS.green} />
                 <ColorElement selected={isActive === "purple"} onClick={() => {
                     setCurrentTheme(themes.purple);
                     setIsActive("purple")
-                }} hidden={!isOpen} color={COLORS.purple} />
+                }} isOpen={isOpen} color={COLORS.purple} />
             </ColorElementsContainer>
         </StyledColorSelector>
     )
@@ -196,7 +179,8 @@ const Navbar = ({ setCurrentTheme }) => {
             <StyledTopNavbar className="neue-montreal-bold">
                 <StyledTitle>AUXENCE DEMOY</StyledTitle>
                 <StyledTitle>DIGITAL DESIGNER & ART DIRECTOR</StyledTitle>
-                <StyledNavigationContainer>
+                <EmptyBox/>
+                <StyledNavigationContainer className='the-column'>
                     <StyledNavigationButton to='/'>HOME</StyledNavigationButton>
                     <StyledNavigationButton to='/projects'>PROJECT</StyledNavigationButton>
                     <StyledNavigationButton to='/about'>ABOUT</StyledNavigationButton>
@@ -213,7 +197,7 @@ const Navbar = ({ setCurrentTheme }) => {
                     <StyledElementSquareWhite />
                     <StyledElementSquareBlack />
                 </StyledElementSquareContainer>
-                <ColorSelector setCurrentTheme={setCurrentTheme} />
+                <ColorSelector setCurrentTheme={setCurrentTheme}/>
             </StyledBottomNavbar>
         </StyledNavbarContainer>
     )
