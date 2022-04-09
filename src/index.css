@@ -3,7 +3,9 @@
   font-style: normal;
   font-weight: 700;
   src: url("../public/fonts/PPNeueMontreal-Regular.woff2") format("woff2"),
-       url("../public/fonts/PPNeueMontreal-Regular.woff") format("woff");
+       url("../public/fonts/PPNeueMontreal-Regular.woff") format("woff"),
+       url("../public/fonts/PPNeueMontreal-Bold.woff2") format("woff2"),
+       url("../public/fonts/PPNeueMontreal-Bold.woff") format("woff");
 }
 
 body {
