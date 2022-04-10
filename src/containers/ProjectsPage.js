@@ -70,7 +70,6 @@ const ArrayLineAnimation = styled(ArrayLine).attrs({as: "button"})`
         }
         ${ImageSpoilerContainer} {
             transform: translateY(0);
-            background-color: red;
         }
     };
 `

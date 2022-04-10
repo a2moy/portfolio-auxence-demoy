@@ -15,6 +15,7 @@ const ParagraphBot = styled(Paragraph)`
 
 const Banner = styled.div`
     margin-top: 100px;
+    font-size: 144px;
 `
 
 const HomePage = () => {
@@ -55,7 +56,7 @@ const HomePage = () => {
                 <span className='column-3'></span>
             </div>
             <Banner>
-                selected
+                selected works-
             </Banner>
             <ProjectArray/>
         </Content>
