@@ -29,6 +29,8 @@ const Spoiler = styled.div`
 
 const ImageExtended = styled.img`
     width: 100%;
+    height: 280px;
+    object-fit: cover;
 `
 
 const ImageSpoilerContainer = styled.div`
@@ -51,7 +53,7 @@ const Column1Mask = styled.div`
 `
 
 const Column1Container = styled.div`
-    height: 300px;
+    height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -61,20 +63,19 @@ const ArrayLineAnimation = styled(ArrayLine).attrs({as: "button"})`
     &:hover,
     &:focus   {
         ${Column1Mask} {
-            height: 300px;
+            height: 280px;
         }
         ${ArrayImageContainer} {
-            height: 115px;
+            height: 280px;
         }
         ${ImageSpoilerContainer} {
             transform: translateY(0);
+            background-color: red;
         }
     };
 `
 
 const ProjectsPage = () => {
-    const navigate = useNavigate()
-
     return (
         <Content>
             <IntroContainer className='columns-container'>
@@ -89,44 +90,53 @@ const ProjectsPage = () => {
                 </Paragraph>
                 <span className='column-3'/>
             </IntroContainer>
-            <Array>
-                <ArrayTitle>selected works</ArrayTitle>
-                <ArrayLineSeparator />
-                {config.selectedWorks.map((projects, index) => {
-                    return (
-                        <>
-                            <ArrayLineAnimation className='columns-container'>
-                                <Column1Mask className='column-1'>
-                                    <Column1Container>
-                                        <ArrayLineColumn1>
-                                            <ArrayTextFirst>{projects.name}</ArrayTextFirst>
-                                            <ArrayText>{projects.year}</ArrayText>
-                                            <ArrayText>{projects.type}</ArrayText>
-                                        </ArrayLineColumn1>
-                                        <Paragraph>
-                                            <p>
-                                                {projects.description}
-                                            </p>
-                                        </Paragraph>
-                                    </Column1Container>
-                                </Column1Mask>
-                                <ArrayImageContainer className='column-2'>
-                                    <ImageSpoilerContainer>
-                                        <ImageExtended src={projects.thumbnail}/>
-                                        <Spoiler/>
-                                    </ImageSpoilerContainer>
-                                </ArrayImageContainer>
-                                <div className='column-3'>
-                                    <ArrayText to={`${index}`}>view</ArrayText>
-                                </div>
-                            </ArrayLineAnimation>
-                            <ArrayLineSeparator />
-                        </>
-                    )
-                })}
-            </Array>
+            <ProjectArray/>
         </Content >
     );
 }
 
+const ProjectArray = () => {
+    return (
+        <Array>
+            <ArrayTitle>selected works</ArrayTitle>
+            <ArrayLineSeparator />
+            {config.selectedWorks.map((projects, index) => {
+                return (
+                    <>
+                        <ArrayLineAnimation className='columns-container'>
+                            <Column1Mask className='column-1'>
+                                <Column1Container>
+                                    <ArrayLineColumn1>
+                                        <ArrayTextFirst>{projects.name}</ArrayTextFirst>
+                                        <ArrayText>{projects.year}</ArrayText>
+                                        <ArrayText>{projects.type}</ArrayText>
+                                    </ArrayLineColumn1>
+                                    <Paragraph>
+                                        <p>
+                                            {projects.description}
+                                        </p>
+                                    </Paragraph>
+                                </Column1Container>
+                            </Column1Mask>
+                            <ArrayImageContainer className='column-2'>
+                                <ImageSpoilerContainer>
+                                    <ImageExtended src={projects.thumbnail}/>
+                                    <Spoiler/>
+                                </ImageSpoilerContainer>
+                            </ArrayImageContainer>
+                            <div className='column-3'>
+                                <ArrayText to={`${index}`}>view</ArrayText>
+                            </div>
+                        </ArrayLineAnimation>
+                        <ArrayLineSeparator />
+                    </>
+                )
+            })}
+            </Array>
+    )
+}
+
 export default ProjectsPage;
+export {
+    ProjectArray
+}
