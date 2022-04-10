@@ -14,12 +14,36 @@
        url("../public/fonts/PPNeueMontreal-Bold.woff") format("woff");
 }
 
+html { scrollbar-width: none; }
+body::-webkit-scrollbar { display: none; }
+
+p { margin:0 }
+
+a {
+  text-underline-position: auto;
+  color: inherit;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  outline: inherit;
+  text-transform: none;
+}
+
 body {
   margin: 0;
   font-family: "PPNeueMontreal";
   font-weight: normal;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: -moz-scrollbars-none;
 }
 
 /* for Firefox */
@@ -54,7 +78,7 @@ body {
 }
 
 .column-1 {
-  flex:4;
+  flex: 4;
 }
 
 .column-2 {

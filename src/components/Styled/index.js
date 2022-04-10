@@ -2,110 +2,74 @@ import styled from 'styled-components'
 
 const Content = styled.div`
     padding: 0 25px;
-    margin-bottom: 210px;
-`
-
-const StyledContainer = styled.div`
+    margin-bottom: 170px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 100px;
 `
 
-const StyledLine = styled.div`
+const Array = styled.div`
     display: flex;
-    justify-content: space-between;
-    gap: 25px;
+    flex-direction: column;
+    margin-top: 100px;
+    width: 100%;
 `
 
-const StyledContainerLeft = styled.div`
-    display: flex;
-    justify-content: space-between;
-    flex-basis: 50%;
-    flex-grow: 1;
-`
-
-const StyledContainerRight = styled.div`
-    display: flex;
-    justify-content: space-between;
-    flex-basis: 50%;
-    flex-grow: 1;
-`
-
-const StyledText = styled.div`
+const ArrayLine = styled.div`
+    align-items: flex-start;
+    padding: 25px 0px;
     font-size: 36px;
-    margin: 25px 0px;
 `
 
-const StyledTitle = styled.span`
-    font-size: 24px;
+const ArrayText = styled.div`
+    flex: 1;
+    text-align: center;
+`
+
+const ArrayTextFirst = styled(ArrayText)`
+    text-align: start;
+    flex: 2;
+`
+
+const ArrayTitle = styled.span`
     margin-bottom: 10px;
+    font-size: 24px;
 `
 
-const StyledSeparator = styled.span`
-    border: 1px solid #000000;
+const ArrayLineSeparator = styled.span`
+    border-top: 1px solid #000000;
 `
 
-const StyledToolsSkillsContainer = styled.div`
-    display: flex;
-    gap: 25px;
+const IntroContainer = styled.div`
+    padding-top: 90px;
+    width: inherit;
+    align-items: flex-start;
+    margin-bottom: 70px;
 `
 
-const StyledToolsSkillsContainerLeft = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
-    flex-grow: 1;
-`
-
-const StyledToolsSkillsContainerRight = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
-    flex-grow: 1;
-`
-
-const StyledHead = styled.div`
-    display: flex;
-    margin-bottom: 100px;
-`
-const StyledHeadTitle = styled.div`
+const PageTitle = styled.div`
     font-size: 72px;
-    line-height: 86px;
-    margin-bottom: 85px;
     font-weight: bold;
     color: ${props => props.theme.mainColor};
 `
-const StyledSubtitle = styled.div`
+
+const Paragraph = styled.div`
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 43px;
     font-size: 18px;
-`
-
-const StyledHeadLeft = styled.div`
-    flex-basis: 60%;
-`
-
-const StyledHeadRight = styled.div``
-
-const StyledHeadDescription = styled.p`
-    margin-bottom: 40px;
-    width: 328px;
 `
 
 export {
     Content,
-    StyledContainer,
-    StyledLine,
-    StyledContainerLeft,
-    StyledContainerRight,
-    StyledText,
-    StyledTitle,
-    StyledSeparator,
-    StyledToolsSkillsContainer,
-    StyledToolsSkillsContainerLeft,
-    StyledToolsSkillsContainerRight,
-    StyledHead,
-    StyledHeadTitle,
-    StyledSubtitle,
-    StyledHeadLeft,
-    StyledHeadRight,
-    StyledHeadDescription,
+    Array,
+    ArrayTitle,
+    ArrayLineSeparator,
+    ArrayLine,
+    ArrayText,
+    ArrayTextFirst,
+    IntroContainer,
+    PageTitle,
+    Paragraph,
 }

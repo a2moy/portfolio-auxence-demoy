@@ -36,6 +36,7 @@ const Logo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    z-index: 999;
 `
 
 const StyledElementSquareWhite = styled.div`
