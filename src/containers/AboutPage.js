@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useEffect } from 'react';
 
 import {
     Content,
@@ -24,7 +25,16 @@ const ArrayLineSplit = styled(ArrayLine)`
       gap: 25px;
 `
 
-const AboutPage = () => {
+const AboutPage = (props) => {
+
+    const mountCallback = props.mountCallback;
+    const unmountCallback = props.unmountCallback;
+
+    useEffect(() => {
+        mountCallback();
+        return unmountCallback;
+    }, [mountCallback, unmountCallback]);
+
     return (
         <Content>
             <IntroContainer className='columns-container'>
@@ -47,7 +57,7 @@ const AboutPage = () => {
                 <ArrayLineSeparator />
                     {config.about.professional_experiences.map((experience, index) => {
                         return (
-                        <>
+                        <div key={index}>
                             <ArrayLineSplit className='columns-container'>
                                 <Split>
                                     <p>{experience.job}</p>
@@ -59,7 +69,7 @@ const AboutPage = () => {
                                 </Split>
                             </ArrayLineSplit>
                             <ArrayLineSeparator />
-                        </>
+                        </div>
                     )})}
             </Array>
             <Array>
@@ -67,7 +77,7 @@ const AboutPage = () => {
                 <ArrayLineSeparator/>
                 {config.about.education.map((education, index) => {
                     return (
-                        <>
+                        <div key={index}>
                             <ArrayLineSplit className='columns-container'>
                                 <Split>
                                     <p>{education.title}</p>
@@ -78,7 +88,7 @@ const AboutPage = () => {
                                 </Split>
                             </ArrayLineSplit>
                             <ArrayLineSeparator/>
-                        </>
+                        </div>
                     )
                 })}
             </Array>
@@ -89,10 +99,10 @@ const AboutPage = () => {
                         <ArrayLineSeparator/>
                         {config.about.tools.map((tool, index) => {
                             return (
-                            <>
+                            <div key={index}>
                                 <ArrayLine key={index}>{tool}</ArrayLine>
                                 <ArrayLineSeparator />
-                            </>
+                            </div>
                         )})}
                     </Array>
                 </Split>
@@ -102,10 +112,10 @@ const AboutPage = () => {
                         <ArrayLineSeparator/>
                         {config.about.skills.map((skill, index) => {
                             return (
-                            <>
+                            <div key={index}>
                                 <ArrayLine key={index}>{skill}</ArrayLine>
                                 <ArrayLineSeparator />
-                            </>
+                            </div>
                         )})}
                     </Array>
                 </Split>

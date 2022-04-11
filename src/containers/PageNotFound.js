@@ -34,6 +34,7 @@ const Texte = styled.p`
 `
 
 const PageNotFound = () => {
+
     return (
         <ErrorPage>
             <Error>

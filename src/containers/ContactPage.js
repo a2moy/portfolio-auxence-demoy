@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 import {
     Content,
     IntroContainer,
@@ -15,7 +16,16 @@ const MailLink = styled.a`
     flex: 1.58;
 `
 
-const ContactPage = () => {
+const ContactPage = (props) => {
+
+    const mountCallback = props.mountCallback;
+    const unmountCallback = props.unmountCallback;
+
+    useEffect(() => {
+        mountCallback();
+        return unmountCallback;
+    }, [mountCallback, unmountCallback]);
+
     return (
         <Content>
             <IntroContainer className='columns-container'>

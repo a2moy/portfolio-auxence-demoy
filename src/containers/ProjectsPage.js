@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 import {
@@ -74,7 +73,16 @@ const ArrayLineAnimation = styled(ArrayLine).attrs({as: "button"})`
     };
 `
 
-const ProjectsPage = () => {
+const ProjectsPage = (props) => {
+
+    const mountCallback = props.mountCallback;
+    const unmountCallback = props.unmountCallback;
+
+    useEffect(() => {
+        mountCallback();
+        return unmountCallback;
+    }, [mountCallback, unmountCallback]);
+
     return (
         <Content>
             <IntroContainer className='columns-container'>
@@ -101,7 +109,7 @@ const ProjectArray = () => {
             <ArrayLineSeparator />
             {config.selectedWorks.map((projects, index) => {
                 return (
-                    <>
+                    <div key={index}>
                         <ArrayLineAnimation className='columns-container'>
                             <Column1Mask className='column-1'>
                                 <Column1Container>
@@ -128,7 +136,7 @@ const ProjectArray = () => {
                             </div>
                         </ArrayLineAnimation>
                         <ArrayLineSeparator />
-                    </>
+                    </div>
                 )
             })}
             </Array>
