@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import anime from 'animejs/lib/anime.es.js';
 
 import { Footer, Navbar } from '../components';
-import { ProjectsPage, AboutPage, ContactPage, HomePage, PageNotFound, ProjectPage } from ".";
+import { ProjectsPage, AboutPage, ContactPage, HomePage, PageNotFound, ProjectPage, LabPage } from ".";
 import { ThemeProvider } from "styled-components";
 import themes from '../theme';
 
@@ -65,6 +65,7 @@ const App = () => {
                     <Route path="projects/:projectId" element={<ProjectPage     mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
                     <Route path="about" element={<AboutPage                     mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
                     <Route path="contact" element={<ContactPage                 mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
+                    <Route path="lab" element={<LabPage                         mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
                     <Route path="*" element={<PageNotFound                      mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
                 </Routes>
                 <Footer />

@@ -16,12 +16,15 @@ const StyledFooterContainerText = styled.div`
     display: flex;
     justify-content: space-between;
     width: 72%;
-    margin-right: 55px; 
+    margin-right: 55px;
     flex-direction: row;
 `
 
 const StyledFooterContainerItemIcon = styled.div`
     margin-left: 44px;
+    &:hover {
+        cursor: pointer;
+    }
 `
 const StyledFooterContainerItemContacts = styled.div`
     display: flex;
@@ -52,6 +55,7 @@ const StyledLink = styled.a`
     color: #040205;
     &:hover {
         cursor: pointer;
+        text-decoration: underline;
     }
 `
 
@@ -64,10 +68,11 @@ const StyledCopyrights = styled.span`
 `
 
 const Footer = () => {
-    // TODO(Quentin): On icon click scroll to the top of the page
     return (
         <StyledFooterContainer>
-            <StyledFooterContainerItemIcon onClick={() => {}}>
+            <StyledFooterContainerItemIcon onClick={() => {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }}>
                 <A2LogoBlack width='114.59px' height='119px' />
             </StyledFooterContainerItemIcon>
             <StyledFooterContainerText>
@@ -83,7 +88,7 @@ const Footer = () => {
                 <StyledFooterContainerItemDevsCopyrights>
                     <StyledFooterContainerItemDevs>
                         <StyledText>designer: auxence demoy</StyledText>
-                        <StyledText>developers: <StyledLink href=''>quentin jeaningros</StyledLink> - <StyledLink href=''>nathan spanier</StyledLink></StyledText>
+                        <StyledText>developers: <StyledLink href='https://www.instagram.com/quentinjeanningros/'>quentin jeanningros</StyledLink> - <StyledLink href='https://github.com/spaniernathan'>nathan spanier</StyledLink></StyledText>
                     </StyledFooterContainerItemDevs>
                     <div>
                         <StyledCopyrights>© 2022 - A2MOY - ALL RIGHTS RESERVED</StyledCopyrights>

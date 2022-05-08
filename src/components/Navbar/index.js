@@ -82,10 +82,11 @@ const NavigationContainer = styled.div`
     justify-content: space-between;
 `
 
-const Title = styled(TexteBold)`
+const Title = styled(TexteBold).attrs({as: "a"})`
     @media(max-width: 767px) {
         display: none;
     }
+    text-decoration: none;
 `
 
 const ColorChooserContainer = styled.div`
@@ -175,7 +176,7 @@ const Navbar = ({ setCurrentTheme }) => {
         <NavbarContainer id="nav">
             <TopNavbar className='columns-container'>
                 <TopNavbarContext className='column-1'>
-                    <Title>AUXENCE DEMOY</Title>
+                    <Title href="/">AUXENCE DEMOY</Title>
                     <Title>DIGITAL DESIGNER &#38; ART DIRECTOR</Title>
                     <span/>
                 </TopNavbarContext>

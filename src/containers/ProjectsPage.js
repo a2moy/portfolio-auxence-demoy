@@ -92,7 +92,7 @@ const ProjectsPage = (props) => {
                         Details and feelings focus, there is a selection of project i&#39;ve done across my experiences with brand and people.
                     </p>
                     <p>
-                        More project <a href="url">here</a>
+                        More project <a href="https://a2moy.fr/Portfolio_A2_EN.pdf" target="_blank">here</a>
                     </p>
                 </Paragraph>
                 <span className='column-3'/>
