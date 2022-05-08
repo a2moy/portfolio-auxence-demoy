@@ -59,6 +59,7 @@ const Column1Container = styled.div`
 `
 
 const ArrayLineAnimation = styled(ArrayLine).attrs({as: "button"})`
+    width: 100%;
     &:hover,
     &:focus   {
         ${Column1Mask} {
