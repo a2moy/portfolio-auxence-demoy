@@ -88,7 +88,7 @@ const Footer = () => {
                 <StyledFooterContainerItemDevsCopyrights>
                     <StyledFooterContainerItemDevs>
                         <StyledText>designer: auxence demoy</StyledText>
-                        <StyledText>developers: <StyledLink href='https://www.instagram.com/quentinjeanningros/'>quentin jeanningros</StyledLink> - <StyledLink href='https://github.com/spaniernathan'>nathan spanier</StyledLink></StyledText>
+                        <StyledText>developers: <StyledLink target='_blank'  href='https://linktr.ee/quentinjeanningros'>quentin jeanningros</StyledLink> - <StyledLink target='_blank'  href='https://linktr.ee/spaniernathan'>nathan spanier</StyledLink></StyledText>
                     </StyledFooterContainerItemDevs>
                     <div>
                         <StyledCopyrights>© 2022 - A2MOY - ALL RIGHTS RESERVED</StyledCopyrights>
