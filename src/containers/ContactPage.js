@@ -14,6 +14,8 @@ const PageTitleAbout = styled(PageTitle)`
 const MailLink = styled.a`
     text-align: center;
     flex: 1.58;
+    cursor: pointer;
+    text-decoration: underline;
 `
 
 const ContactPage = (props) => {
@@ -32,7 +34,7 @@ const ContactPage = (props) => {
                 <PageTitleAbout className='column-1'>WANT TO TALK ?</PageTitleAbout>
                 <Paragraph className='column-2'>
                     <p>
-                        i&#39;m always thrilled to hear about freelance inquiries, collaboration proposals or any worldwide cool opportunity.
+                        I&#39;m always thrilled to hear about freelance inquiries, collaboration proposals or any worldwide cool opportunity.
                     </p>
                 </Paragraph>
                 <MailLink className='column-3' onClick={() => window.open('mailto:2moy.auxence@gmail.com')}>

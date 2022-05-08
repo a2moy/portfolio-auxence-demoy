@@ -18,6 +18,11 @@ const Banner = styled.div`
     font-size: 144px;
 `
 
+
+const PageTitleHome = styled(PageTitle)`
+    margin-bottom: 100px;
+`
+
 const HomePage = (props) => {
     const setMarginTop = () => {
         const height = window.innerHeight - (document.getElementById('intro')?.clientHeight + document.getElementById('nav')?.clientHeight + 250);
@@ -40,10 +45,15 @@ const HomePage = (props) => {
     return (
         <Content>
             <IntroContainer className='columns-container' id='intro'>
-                <PageTitle className='column-1'>DIGITAL DESIGNER &#38; <br/> ART DIRECTOR</PageTitle>
+                <div>
+                    <PageTitleHome className='column-1'>DIGITAL DESIGNER &#38; <br/> ART DIRECTOR</PageTitleHome>
+                    <p>
+                        France based but working world wide.
+                    </p>
+                </div>
                 <Paragraph className='column-2'>
                     <p>
-                        focus on digital products, visual identity and art direction, to help companies, brands and entrepreneurs develop and achieve their goals.
+                        Focus on digital products, visual identity and art direction, to help companies, brands and entrepreneurs develop and achieve their goals.
                     </p>
                 </Paragraph>
                 <span className='column-3'/>

@@ -89,10 +89,10 @@ const ProjectsPage = (props) => {
                 <PageTitle className='column-1'>SELECTED <br/> PROJECT</PageTitle>
                 <Paragraph className='column-2'>
                     <p>
-                        details and feelings focus, there is a selection of project i&#39;ve done across my experiences with brand and people.
+                        Details and feelings focus, there is a selection of project i&#39;ve done across my experiences with brand and people.
                     </p>
                     <p>
-                        more project <a href="url">here</a>
+                        More project <a href="url">here</a>
                     </p>
                 </Paragraph>
                 <span className='column-3'/>

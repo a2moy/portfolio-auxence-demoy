@@ -47,7 +47,7 @@ const AboutPage = (props) => {
                         Always on the lookout for new mediums and technologies, I make the most of every opportunity they offer to design projects that make sense.
                     </p>
                     <p>
-                        and for basic information, i'm a 22 year old designer experimenting with all aspects of design, from website, 3d, motion, identity to photography.
+                        And for basic information, i'm a 22 year old designer experimenting with all aspects of design, from website, 3d, motion, identity to photography.
                     </p>
                 </Paragraph>
                 <span className='column-3'/>

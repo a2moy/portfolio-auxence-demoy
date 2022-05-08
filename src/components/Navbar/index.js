@@ -142,7 +142,7 @@ const ColorSelector = ({ setCurrentTheme }) => {
     const [isActive, setIsActive] = useState("red");
     return (
         <StyledColorSelector className='column-2'>
-            <StyledButton href="/">the lab</StyledButton>
+            <StyledButton href="/lab">the lab</StyledButton>
             <ColorChooserContainer isOpen={isOpen}>
                 <StyledButton onClick={() => { setIsOpen(!isOpen) }}>change color</StyledButton>
                 <ColorPastil selected={isActive === "red"} onClick={() => {
