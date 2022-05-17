@@ -6,42 +6,40 @@ import { A2LogoBlack } from '../Icons';
 import COLORS from '../../colors';
 import themes from '../../theme';
 
-const StyledNavbarContainer = styled.nav`
-    margin-bottom: 90px;
-    @media(max-width: 767px) {
-        margin-bottom: 40px;
-    }
+const NavbarContainer = styled.nav`
     display: flex;
     flex-direction: column;
 `
 
-const StyledTopNavbar = styled.div`
+const TopNavbar = styled.div`
     background-color: ${props => props.theme.mainColor};
     width: inherit;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 25px;
-    @media(max-width: 767px) {
-        flex-direction: row-reverse;
-    }
 `
 
-const StyledBottomNavbar = styled.div`
+const BottomNavbar = styled.div`
+    padding: 0px 25px;
     height: 25px;
     width: inherit;
     display: flex;
-    justify-content: space-between;
+    background-color: #ffffff;
 `
 
-const StyledElementSquareContainer = styled.div`
+const SquareContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    flex-basis: 60%;
 `
 
-const StyledElementSquareWhite = styled.div`
+const Logo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 999;
+`
+
+const SquareWhite = styled.div`
     background-color: #FAFAFA;
     flex-grow: 0;
     margin: 0px 0px;
@@ -49,7 +47,7 @@ const StyledElementSquareWhite = styled.div`
     height: 25px;
 `
 
-const StyledElementSquareBlack = styled.div`
+const SquareBlack = styled.div`
     background-color: #040205;
     flex-grow: 0;
     margin: 0px 0px;
@@ -57,165 +55,153 @@ const StyledElementSquareBlack = styled.div`
     height: 25px;
 `
 
-const StyledText = styled.span`
-    font-style: normal;
+const TexteBold = styled.span`
     font-weight: bold;
     font-size: 15px;
     line-height: 18px;
     color: #040205;
 `
 
-const StyledNavigationButton = styled(Link)`
+const NavigationButton = styled(Link)`
     text-decoration: none;
     font-size: 15px;
     line-height: 18px;
     color: #040205;
-    font-style: normal;
     font-weight: bold;
-
     @media(max-width: 767px) {
         margin: 4.5px;
     }
-
     &:hover {
         cursor: pointer;
     }
 `
 
-const StyledNavigationContainer = styled.div`
+const NavigationContainer = styled.div`
     display: flex;
-    gap: 31px;
     align-items: center;
     justify-content: space-between;
 `
 
-const StyledTitle = styled(StyledText)`
+const Title = styled(TexteBold).attrs({as: "a"})`
     @media(max-width: 767px) {
         display: none;
     }
+    text-decoration: none;
 `
 
-const ColorElementsContainer = styled.div`
+const ColorChooserContainer = styled.div`
     display: flex;
-    gap: 8px;
     align-items: center;
-    margin-right: 90px;
+    gap: ${props => props.isOpen ? '8px' : '0px'};
+    transition: 0.1s;
 `
 
-const ColorElement = styled.span`
+const ColorPastil = styled.span`
     background-color: ${props => props.color};
     border-radius: 50%;
-    border: 1px solid ${props => props.selected ? COLORS.black : 'transparent'};
-    width: 12px;
-    height: 12px;
-
+    border: ${props => props.isOpen ? '2px' : '0px'} solid ${props => props.selected ? COLORS.black : 'transparent'};
+    width: ${props => props.isOpen ? '12px' : '0px'};
+    height: ${props => props.isOpen ? '12px' : '0px'};
+    transition: 0.1s;
     &:hover {
         cursor: pointer;
+        transform: scale(110%);
+        transition: 0.2s;
+        border: 2px solid ${props => props.selected ? COLORS.black : '#A6A4AB'};
     }
 `
 
-const StyledButton = styled.span`
+const StyledButton = styled.a`
     align-self: center;
     text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
     font-size: 15px;
-    line-height: 18px;
-    color: #040205;
-
+    color: #A6A4AB;
+    transition: 0.1s;
     @media(max-width: 767px) {
         margin: 4.5px;
     }
-
     &:hover {
         cursor: pointer;
+        color: #040205;
+        transition: 0.2s;
     }
 `
 
 const StyledColorSelector = styled.div`
     display: flex;
-    flex-grow: 1;
-    justify-content: flex-start;
+    justify-content: space-between;
+    height: 25px;
 `
 
-const StyledTheLab = styled.div`
-    align-self: center;
-    text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
-    color: #040205;
-
-    @media(max-width: 767px) {
-        margin: 4.5px;
-    }
-
-    &:hover {
-        cursor: pointer;
-    }
-    margin-right: 90px;
+const TopNavbarContext = styled.div`
+    display: flex;
+    justify-content: space-between;
 `
 
 const ColorSelector = ({ setCurrentTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isActive, setIsActive] = useState("red");
     return (
-        <StyledColorSelector>
-            <StyledTheLab to="/">the lab</StyledTheLab>
-            <ColorElementsContainer>
+        <StyledColorSelector className='column-2'>
+            <StyledButton href="/lab">the lab</StyledButton>
+            <ColorChooserContainer isOpen={isOpen}>
                 <StyledButton onClick={() => { setIsOpen(!isOpen) }}>change color</StyledButton>
-                <ColorElement selected={isActive === "red"} onClick={() => {
+                <ColorPastil selected={isActive === "red"} onClick={() => {
                     setCurrentTheme(themes.red);
                     setIsActive("red")
-                }} hidden={!isOpen} color={COLORS.red} />
-                <ColorElement selected={isActive === "blue"} onClick={() => {
+                }} isOpen={isOpen} color={COLORS.red} />
+                <ColorPastil selected={isActive === "blue"} onClick={() => {
                     setCurrentTheme(themes.blue);
                     setIsActive("blue")
-                }} hidden={!isOpen} color={COLORS.blue} />
-                <ColorElement selected={isActive === "orange"} onClick={() => {
+                }} isOpen={isOpen} color={COLORS.blue} />
+                <ColorPastil selected={isActive === "orange"} onClick={() => {
                     setCurrentTheme(themes.orange);
                     setIsActive("orange")
-                }} hidden={!isOpen} color={COLORS.orange} />
-                <ColorElement selected={isActive === "green"} onClick={() => {
+                }} isOpen={isOpen} color={COLORS.orange} />
+                <ColorPastil selected={isActive === "green"} onClick={() => {
                     setCurrentTheme(themes.green);
                     setIsActive("green")
-                }} hidden={!isOpen} color={COLORS.green} />
-                <ColorElement selected={isActive === "purple"} onClick={() => {
+                }} isOpen={isOpen} color={COLORS.green} />
+                <ColorPastil selected={isActive === "purple"} onClick={() => {
                     setCurrentTheme(themes.purple);
                     setIsActive("purple")
-                }} hidden={!isOpen} color={COLORS.purple} />
-            </ColorElementsContainer>
+                }} isOpen={isOpen} color={COLORS.purple} />
+            </ColorChooserContainer>
         </StyledColorSelector>
     )
 }
 
 const Navbar = ({ setCurrentTheme }) => {
     return (
-        <StyledNavbarContainer>
-            <StyledTopNavbar className="neue-montreal-bold">
-                <StyledTitle>AUXENCE DEMOY</StyledTitle>
-                <StyledTitle>DIGITAL DESIGNER & ART DIRECTOR</StyledTitle>
-                <StyledNavigationContainer>
-                    <StyledNavigationButton to='/'>HOME</StyledNavigationButton>
-                    <StyledNavigationButton to='/projects'>PROJECT</StyledNavigationButton>
-                    <StyledNavigationButton to='/about'>ABOUT</StyledNavigationButton>
-                    <StyledNavigationButton to='/contact'>CONTACT</StyledNavigationButton>
-                </StyledNavigationContainer>
-                <A2LogoBlack width='18px' height='18px' />
-            </StyledTopNavbar>
-            <StyledBottomNavbar>
-                <StyledElementSquareContainer>
-                    <StyledElementSquareWhite />
-                    <StyledElementSquareBlack />
-                    <StyledElementSquareWhite />
-                    <StyledElementSquareBlack />
-                    <StyledElementSquareWhite />
-                    <StyledElementSquareBlack />
-                </StyledElementSquareContainer>
-                <ColorSelector setCurrentTheme={setCurrentTheme} />
-            </StyledBottomNavbar>
-        </StyledNavbarContainer>
+        <NavbarContainer id="nav">
+            <TopNavbar className='columns-container'>
+                <TopNavbarContext className='column-1'>
+                    <Title href="/">AUXENCE DEMOY</Title>
+                    <Title>DIGITAL DESIGNER &#38; ART DIRECTOR</Title>
+                    <span/>
+                </TopNavbarContext>
+                <NavigationContainer className='column-2'>
+                    <NavigationButton to='/'>HOME</NavigationButton>
+                    <NavigationButton to='/projects'>PROJECT</NavigationButton>
+                    <NavigationButton to='/about'>ABOUT</NavigationButton>
+                    <NavigationButton to='/contact'>CONTACT</NavigationButton>
+                </NavigationContainer>
+                <Logo className='column-3'>
+                    <A2LogoBlack width='18px' height='18px' />
+                </Logo>
+            </TopNavbar>
+            <BottomNavbar className='columns-container'>
+                <SquareContainer className='column-1'>
+                    <SquareBlack/>
+                    <SquareWhite/>
+                    <SquareBlack/>
+                    <SquareWhite/>
+                    <SquareBlack/>
+                </SquareContainer>
+                <ColorSelector setCurrentTheme={setCurrentTheme}/>
+                <span className='column-3'/>
+            </BottomNavbar>
+        </NavbarContainer>
     )
 }
 

@@ -1,45 +1,47 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 import {
     Content,
-    StyledHead,
-    StyledHeadTitle,
-    StyledHeadLeft,
-    StyledHeadRight,
-    StyledHeadDescription,
+    IntroContainer,
+    PageTitle,
+    Paragraph,
 } from '../components/Styled';
 
-const ContactContent = styled(Content)`
-    margin-bottom: 0;
+const PageTitleAbout = styled(PageTitle)`
+    flex: 3.25;
 `
 
-const Contact = styled(StyledHeadDescription)`
+const MailLink = styled.a`
     text-align: center;
+    flex: 1.58;
+    cursor: pointer;
     text-decoration: underline;
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 
-const ContactPage = () => {
+const ContactPage = (props) => {
+
+    const mountCallback = props.mountCallback;
+    const unmountCallback = props.unmountCallback;
+
+    useEffect(() => {
+        mountCallback();
+        return unmountCallback;
+    }, [mountCallback, unmountCallback]);
+
     return (
-        <ContactContent>
-            <StyledHead>
-                <StyledHeadLeft>
-                    <StyledHeadTitle>WANT TO TALK ?</StyledHeadTitle>
-                </StyledHeadLeft>
-                <StyledHeadRight>
-                    <StyledHeadDescription>
-                    I’m always thrilled to hear about freelance inquiries, collaboration proposals or any worldwide cool opportunity.
-                    </StyledHeadDescription>
-                </StyledHeadRight>
-                <StyledHeadRight onClick={() => window.open('mailto:2moy.auxence@gmail.com')}>
-                    <Contact>
+        <Content>
+            <IntroContainer className='columns-container'>
+                <PageTitleAbout className='column-1'>WANT TO TALK ?</PageTitleAbout>
+                <Paragraph className='column-2'>
+                    <p>
+                        I&#39;m always thrilled to hear about freelance inquiries, collaboration proposals or any worldwide cool opportunity.
+                    </p>
+                </Paragraph>
+                <MailLink className='column-3' onClick={() => window.open('mailto:2moy.auxence@gmail.com')}>
                     contact
-                    </Contact>
-                </StyledHeadRight>
-            </StyledHead>
-        </ContactContent>
+                </MailLink>
+            </IntroContainer>
+        </Content>
     );
 }
 

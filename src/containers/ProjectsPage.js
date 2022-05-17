@@ -1,116 +1,150 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 import {
     Content,
-    StyledContainer,
-    StyledLine,
-    StyledText,
-    StyledTitle,
-    StyledSeparator,
-    StyledHead,
-    StyledHeadTitle,
-    StyledHeadLeft,
-    StyledHeadRight,
-    StyledHeadDescription,
+    Array,
+    ArrayLine,
+    ArrayTextFirst,
+    ArrayText,
+    ArrayLineSeparator,
+    ArrayTitle,
+    IntroContainer,
+    PageTitle,
+    Paragraph,
 } from '../components/Styled';
 
 import config from '../config';
 
-const StyledSpoiler = styled(StyledText)`
+const ArrayLineColumn1 = styled.div`
+    display: flex;
+`
+
+const Spoiler = styled.div`
     background-color: ${props => props.theme.mainColor};
-    width: 25vw;
-
-    &:hover {
-        cursor: pointer;
-    }
+    height : 45px;
+    width: 100%;
 `
 
-const StyledButton = styled(Link)`
-    padding-right: 25px;
-    margin: 25px 0px;
-    font-size: 36px;
-    text-decoration: none;
-    color: #040205;
+const ImageExtended = styled.img`
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
 `
 
-const StyledImage = styled.img`
-    width: 25vw;
-    margin: 25px 0px;
-    &:hover {
-        cursor: pointer;
-    }
+const ImageSpoilerContainer = styled.div`
+    transform: translateY(calc(-100% + 45px));
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
 `
 
-const StyledTextProject = styled(StyledText)`
-    flex: 1;
+const ArrayImageContainer = styled.div`
+    overflow: hidden;
+    height: 45px;
+    transition: 0.5s;
 `
 
-const StyledDescription = styled.div`
-    font-size: 18px;
-    width: 45vw;
-    padding-bottom: 25px;
-    position: relative;
+const Column1Mask = styled.div`
+    height: 45px;
+    transition: 0.5s;
+    overflow: hidden;
 `
 
-const ProjectsPage = () => {
-    const [isOpen, setIsOpen] = useState(null);
-    const navigate = useNavigate()
+const Column1Container = styled.div`
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`
 
-    const onEnter = (index) => setIsOpen(index)
+const ArrayLineAnimation = styled(ArrayLine).attrs({as: "button"})`
+    width: 100%;
+    &:hover,
+    &:focus   {
+        ${Column1Mask} {
+            height: 280px;
+        }
+        ${ArrayImageContainer} {
+            height: 280px;
+        }
+        ${ImageSpoilerContainer} {
+            transform: translateY(0);
+        }
+    };
+`
 
-    const onLeave = () => setIsOpen(null)
+const ProjectsPage = (props) => {
+
+    const mountCallback = props.mountCallback;
+    const unmountCallback = props.unmountCallback;
+
+    useEffect(() => {
+        mountCallback();
+        return unmountCallback;
+    }, [mountCallback, unmountCallback]);
 
     return (
         <Content>
-            <StyledHead>
-                <StyledHeadLeft>
-                    <StyledHeadTitle>SELECTED PROJECTS</StyledHeadTitle>
-                </StyledHeadLeft>
-                <StyledHeadRight>
-                    <StyledHeadDescription>
-                        details and feelings focus, there is a selection of project i've done across my experiences with brand and people.
-                    </StyledHeadDescription>
-                    {/* TODO: add link to 'more projects here */}
-                    <StyledHeadDescription>
-                        more project here
-                    </StyledHeadDescription>
-                </StyledHeadRight>
-            </StyledHead>
-            <StyledContainer>
-                <StyledTitle>selected works</StyledTitle>
-                <StyledSeparator />
-                {config.selectedWorks.map((projects, index) => {
-                    return (
-                        <>
-                            <StyledLine>
-                                <StyledTextProject>{projects.name}</StyledTextProject>
-                                <StyledTextProject>{projects.year}</StyledTextProject>
-                                <StyledTextProject>{projects.type}</StyledTextProject>
-                                {isOpen === index ? (
-                                    <StyledImage
-                                        src={projects.thumbnail}
-                                        onMouseLeave={onLeave}
-                                        onClick={() => navigate(`${index}`)}
-                                    />
-                                ) : (
-                                    <StyledSpoiler
-                                        onMouseEnter={() => onEnter(index)}
-                                    />
-                                )}
-                                <StyledButton to={`${index}`}>view</StyledButton>
-                            </StyledLine>
-                            {isOpen === index && (
-                                <StyledDescription>{projects.description}</StyledDescription>
-                            )}
-                            <StyledSeparator />
-                        </>
-                    )
-                })}
-            </StyledContainer>
+            <IntroContainer className='columns-container'>
+                <PageTitle className='column-1'>SELECTED <br/> PROJECT</PageTitle>
+                <Paragraph className='column-2'>
+                    <p>
+                        Details and feelings focus, there is a selection of project i&#39;ve done across my experiences with brand and people.
+                    </p>
+                    <p>
+                        More project <a href="https://a2moy.fr/Portfolio_A2_EN.pdf" target="_blank">here</a>
+                    </p>
+                </Paragraph>
+                <span className='column-3'/>
+            </IntroContainer>
+            <ProjectArray/>
         </Content >
     );
 }
 
+const ProjectArray = () => {
+    return (
+        <Array>
+            <ArrayTitle>selected works</ArrayTitle>
+            <ArrayLineSeparator />
+            {config.selectedWorks.map((projects, index) => {
+                return (
+                    <div key={index}>
+                        <ArrayLineAnimation className='columns-container'>
+                            <Column1Mask className='column-1'>
+                                <Column1Container>
+                                    <ArrayLineColumn1>
+                                        <ArrayTextFirst>{projects.name}</ArrayTextFirst>
+                                        <ArrayText>{projects.year}</ArrayText>
+                                        <ArrayText>{projects.type}</ArrayText>
+                                    </ArrayLineColumn1>
+                                    <Paragraph>
+                                        <p>
+                                            {projects.description}
+                                        </p>
+                                    </Paragraph>
+                                </Column1Container>
+                            </Column1Mask>
+                            <ArrayImageContainer className='column-2'>
+                                <ImageSpoilerContainer>
+                                    <ImageExtended src={projects.thumbnail}/>
+                                    <Spoiler/>
+                                </ImageSpoilerContainer>
+                            </ArrayImageContainer>
+                            <div className='column-3'>
+                                <ArrayText to={`${index}`}>view</ArrayText>
+                            </div>
+                        </ArrayLineAnimation>
+                        <ArrayLineSeparator />
+                    </div>
+                )
+            })}
+            </Array>
+    )
+}
+
 export default ProjectsPage;
+export {
+    ProjectArray
+}
