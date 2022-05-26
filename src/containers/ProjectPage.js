@@ -6,7 +6,7 @@ import config from '../config';
 
 const ProjectsPage = () => {
     const { projectId } = useParams();
-    const { templateNumber, ...data } = config.selectedWorks[projectId]
+    const { templateNumber, ...data } = config.projects[projectId]
     return Templates[`${templateNumber}`]({ ...data });
 }
 

@@ -8,17 +8,7 @@ import {
     ArrayLineSeparator,
 } from '../components/Styled';
 
-let arraySpare = [
-    {img: "images/LabTest.jpg", name: "name bot too much ch.1", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.3", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.4", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.5", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.6", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.7", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.8", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.9", subject: "sub"},
-    {img: "images/LabTest.jpg", name: "name bot too much ch.10", subject: "sub"}
-]
+import config from '../config';
 
 const LineArray = styled.div`
     width: 100%;
@@ -58,7 +48,7 @@ const Post = ({object}) => {
 
     return (
         <PostContainer>
-            <img src={object.img}/>
+            <img alt={""} src={object.img}/>
             <PostInfo>
                 <p>{object.name}</p>
                 <p>{object.subject}</p>
@@ -79,7 +69,7 @@ const BuildLines = (array, columnCount) => {
             lineContent.push(<Post key={n} object={array[n]}/>)
         }
 
-        ligneArray.push(i % switchCount == 0 ?
+        ligneArray.push(i % switchCount === 0 ?
             <LineLeft key={i} > {lineContent} </LineLeft>
             :
             <LineRight key={i} > {lineContent} </LineRight>
@@ -98,8 +88,6 @@ const LabPage = (props) => {
         return unmountCallback;
     }, [mountCallback, unmountCallback]);
 
-
-
     return (
         <Content>
             <IntroContainer className='columns-container'>
@@ -109,13 +97,13 @@ const LabPage = (props) => {
                         Here are some experiments I did in 3d, graphic design, web design, photography or many other things ...
                     </p>
                     <p>
-                        Discover more on my <a href="https://www.instagram.com/a2.lab/" target="_blank">instagram</a>
+                        Discover more on my <a href="https://www.instagram.com/a2.lab/" target="_blank" rel="noreferrer">instagram</a>
                     </p>
                 </Paragraph>
                 <span className='column-3'/>
             </IntroContainer>
             <LineArray>
-                {BuildLines(arraySpare, 2)}
+                {BuildLines(config.lab, 2)}
             </LineArray>
         </Content>
     );

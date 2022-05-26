@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
 import {
     Content,
@@ -15,6 +16,10 @@ import {
 } from '../components/Styled';
 
 import config from '../config';
+
+const ArrayTextLink = styled(Link)`
+    ${ArrayText}
+`
 
 const ArrayLineColumn1 = styled.div`
     display: flex;
@@ -93,7 +98,7 @@ const ProjectsPage = (props) => {
                         Details and feelings focus, there is a selection of project i&#39;ve done across my experiences with brand and people.
                     </p>
                     <p>
-                        More project <a href="https://a2moy.fr/Portfolio_A2_EN.pdf" target="_blank">here</a>
+                        More project <a href="https://a2moy.fr/Portfolio_A2_EN.pdf" target="_blank" rel="noreferrer">here</a>
                     </p>
                 </Paragraph>
                 <span className='column-3'/>
@@ -133,7 +138,7 @@ const ProjectArray = () => {
                                 </ImageSpoilerContainer>
                             </ArrayImageContainer>
                             <div className='column-3'>
-                                <ArrayText to={`${index}`}>view</ArrayText>
+                                <ArrayTextLink to={`${index}`}>view</ArrayTextLink>
                             </div>
                         </ArrayLineAnimation>
                         <ArrayLineSeparator />
