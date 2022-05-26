@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
+import TitleAnimator from '../components/TitleAnimator';
 import {
     Content,
     IntroContainer,
@@ -31,7 +32,9 @@ const ContactPage = (props) => {
     return (
         <Content>
             <IntroContainer className='columns-container'>
-                <PageTitleAbout className='column-1'>WANT TO TALK ?</PageTitleAbout>
+                <PageTitleAbout className='column-1'>
+                    <TitleAnimator texte="WANT TO TALK ?"/>
+                </PageTitleAbout>
                 <Paragraph className='column-2'>
                     <p>
                         I&#39;m always thrilled to hear about freelance inquiries, collaboration proposals or any worldwide cool opportunity.

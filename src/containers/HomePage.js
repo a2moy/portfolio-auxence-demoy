@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import ProjectArray from '../components/ProjectArray';
+import TitleAnimator from '../components/TitleAnimator';
 import {
     IntroContainer,
     PageTitle,
@@ -45,8 +46,11 @@ const HomePage = (props) => {
     return (
         <Content>
             <IntroContainer className='columns-container' id='intro'>
-                <div>
-                    <PageTitleHome className='column-1'>DIGITAL DESIGNER &#38; <br/> ART DIRECTOR</PageTitleHome>
+                <div className='column-1'>
+                    <PageTitleHome>
+                        <TitleAnimator texte="DIGITAL DESIGNER &"/>
+                        <TitleAnimator texte="ART DIRECTOR"/>
+                    </PageTitleHome>
                     <p>
                         France based but working world wide.
                     </p>

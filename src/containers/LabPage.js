@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
+import TitleAnimator from '../components/TitleAnimator';
 import {
     Content,
     IntroContainer,
@@ -91,7 +92,9 @@ const LabPage = (props) => {
     return (
         <Content>
             <IntroContainer className='columns-container'>
-                <PageTitle className='column-1'>THE LAB</PageTitle>
+                <PageTitle className='column-1'>
+                    <TitleAnimator texte="THE LAB"/>
+                </PageTitle>
                 <Paragraph className='column-2'>
                     <p>
                         Here are some experiments I did in 3d, graphic design, web design, photography or many other things ...

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import ProjectArray from '../components/ProjectArray';
+import TitleAnimator from '../components/TitleAnimator';
 
 import {
     Content,
@@ -21,7 +22,10 @@ const ProjectsPage = (props) => {
     return (
         <Content>
             <IntroContainer className='columns-container'>
-                <PageTitle className='column-1'>SELECTED <br/> PROJECT</PageTitle>
+                <PageTitle className='column-1'>
+                    <TitleAnimator texte="SELECTED"/>
+                    <TitleAnimator texte="PROJECT"/>
+                </PageTitle>
                 <Paragraph className='column-2'>
                     <p>
                         Details and feelings focus, there is a selection of project i&#39;ve done across my experiences with brand and people.

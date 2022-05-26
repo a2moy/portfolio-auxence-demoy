@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useEffect } from 'react';
+import TitleAnimator from '../components/TitleAnimator';
 
 import {
     Content,
@@ -38,7 +39,10 @@ const AboutPage = (props) => {
     return (
         <Content>
             <IntroContainer className='columns-container'>
-                <PageTitle className='column-1'>SHORTLY ABOUT <br/> MY SELF</PageTitle>
+                <PageTitle className='column-1'>
+                    <TitleAnimator texte="SHORTLY ABOUT"/>
+                    <TitleAnimator texte="MY SELF"/>
+                </PageTitle>
                 <Paragraph className='column-2'>
                     <p>
                         I attach great importance to the process of experimentation. It allows us to discover, compare and define the optimal solutions for our clients' needs.
