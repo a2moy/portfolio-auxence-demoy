@@ -68,6 +68,7 @@ const NavigationButton = styled(Link)`
     line-height: 18px;
     color: #040205;
     font-weight: bold;
+    transition: 0.2s;
     @media(max-width: 767px) {
         margin: 4.5px;
     }
@@ -172,6 +173,8 @@ const ColorSelector = ({ setCurrentTheme }) => {
 }
 
 const Navbar = ({ setCurrentTheme }) => {
+    const [selected, setSelected] = useState(null);
+
     return (
         <NavbarContainer id="nav">
             <TopNavbar className='columns-container'>
@@ -181,10 +184,10 @@ const Navbar = ({ setCurrentTheme }) => {
                     <span/>
                 </TopNavbarContext>
                 <NavigationContainer className='column-2'>
-                    <NavigationButton to='/'>HOME</NavigationButton>
-                    <NavigationButton to='/projects'>PROJECT</NavigationButton>
-                    <NavigationButton to='/about'>ABOUT</NavigationButton>
-                    <NavigationButton to='/contact'>CONTACT</NavigationButton>
+                    <NavButton to='/' texte="HOME"              callback={setSelected} selected={selected}/>
+                    <NavButton to='/projects' texte="PROJECT"   callback={setSelected} selected={selected}/>
+                    <NavButton to='/about' texte="ABOUT"        callback={setSelected} selected={selected}/>
+                    <NavButton to='/contact' texte="CONTACT"    callback={setSelected} selected={selected}/>
                 </NavigationContainer>
                 <Logo className='column-3'>
                     <A2LogoBlack width='18px' height='18px' />
@@ -202,6 +205,19 @@ const Navbar = ({ setCurrentTheme }) => {
                 <span className='column-3'/>
             </BottomNavbar>
         </NavbarContainer>
+    )
+}
+
+const NavButton = (props) => {
+    return (
+        <NavigationButton to={props.to}
+            onMouseEnter=   {() => {props.callback(props.texte)}}
+            onMouseLeave=   {() => {props.callback(null)}}
+            onFocus=        {() => {props.callback(props.texte)}}
+            onBlur=         {() => {props.callback(null)}}
+            style={props.selected == props.texte || props.selected == null ? {opacity: '1'} : {opacity: '0.25'}}>
+            {props.texte}
+        </NavigationButton>
     )
 }
 

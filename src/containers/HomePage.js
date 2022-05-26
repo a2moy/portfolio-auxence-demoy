@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import { ProjectArray } from './ProjectsPage';
+import ProjectArray from '../components/ProjectArray';
 import {
     IntroContainer,
     PageTitle,
