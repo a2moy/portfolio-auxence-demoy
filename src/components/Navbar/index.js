@@ -9,6 +9,7 @@ import themes from '../../theme';
 const NavbarContainer = styled.nav`
     display: flex;
     flex-direction: column;
+    z-index: 2;
 `
 
 const TopNavbar = styled.div`
@@ -23,7 +24,6 @@ const BottomNavbar = styled.div`
     height: 25px;
     width: inherit;
     display: flex;
-    background-color: #ffffff;
 `
 
 const SquareContainer = styled.div`
@@ -45,6 +45,10 @@ const SquareWhite = styled.div`
     margin: 0px 0px;
     width: 25px;
     height: 25px;
+`
+
+const SquareWhiteOverExtend = styled(SquareWhite)`
+    margin-left: -25px;
 `
 
 const SquareBlack = styled.div`
@@ -195,6 +199,7 @@ const Navbar = ({ setCurrentTheme }) => {
             </TopNavbar>
             <BottomNavbar className='columns-container'>
                 <SquareContainer className='column-1'>
+                    <SquareWhiteOverExtend/>
                     <SquareBlack/>
                     <SquareWhite/>
                     <SquareBlack/>

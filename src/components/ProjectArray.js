@@ -13,6 +13,7 @@ import {
 
 const ArrayTextLink = styled.a`
     ${ArrayText};
+    text-decoration: none;
 `
 
 const ArrayLineColumn1 = styled.div`

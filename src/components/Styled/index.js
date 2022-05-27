@@ -48,7 +48,7 @@ const IntroContainer = styled.div`
 `
 
 const PageTitle = styled.div`
-    font-size: 72px;
+    font-size: 5vw;
     font-weight: bold;
     color: ${props => props.theme.mainColor};
 `

@@ -28,7 +28,7 @@ const TitleLetterWrapper = styled.div`
 `
 
 const TitleLetterContainer = styled.div`
-    height: 85px;
+    margin-bottom: -1.25vw;
 `
 
 

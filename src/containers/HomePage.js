@@ -59,6 +59,12 @@ const HomePage = (props) => {
                     <p>
                         Focus on digital products, visual identity and art direction, to help companies, brands and entrepreneurs develop and achieve their goals.
                     </p>
+                    <p>
+                        Experimentation and discovery shape the understanding of the digital world and guide towards a precise identification of this environment.
+                    </p>
+                    <p>
+                        Craft the experiences.
+                    </p>
                 </Paragraph>
                 <span className='column-3'/>
             </IntroContainer>
