@@ -19,7 +19,6 @@ const Banner = styled.div`
     font-size: 144px;
 `
 
-
 const PageTitleHome = styled(PageTitle)`
     margin-bottom: 100px;
 `

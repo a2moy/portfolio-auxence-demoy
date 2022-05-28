@@ -24,6 +24,8 @@ const ProjectSpec = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font-size: 36px;
+    align-items: end;
 `
 
 const Texte = styled.div`

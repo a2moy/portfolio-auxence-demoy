@@ -31,6 +31,32 @@ const ImageFinal = styled.img`
     width: 75%;
 `
 
+const Feed = styled.div`
+    display: flex;
+    gap: 1.5vw;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+`
+
+const Grid = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5vw;
+    width: 100%;
+    justify-content: center;
+`
+
+const ImageGrid = styled.img`
+    width: 47.5vw;
+`
+
+const EmptyGridCase = styled.div`
+    width: 47.5vw;
+    height: 100%;
+`
+
 const TmplOne = (data) => {
     const { projectId } = useParams();
     let NextID = Number.parseInt(projectId) + 1
@@ -50,7 +76,17 @@ const TmplOne = (data) => {
             <TmplHeader data={data} />
             <Hero src='https://via.placeholder.com/1440x600'/>
             <ImageList>
-                <ImageVertical src='https://via.placeholder.com/1400x500'/>
+                <Feed>
+                    <ImageVertical src='https://via.placeholder.com/1400x500'/>
+                    <Grid>
+                        <ImageGrid src='https://via.placeholder.com/685x450'/>
+                        <ImageGrid src='https://via.placeholder.com/685x450'/>
+                    </Grid>
+                    <Grid>
+                        <EmptyGridCase/>
+                        <ImageGrid src='https://via.placeholder.com/685x450'/>
+                    </Grid>
+                </Feed>
                 <Hero src='https://via.placeholder.com/1440x600'/>
                 <ImageFinal src='https://via.placeholder.com/1080x850'/>
             </ImageList>
