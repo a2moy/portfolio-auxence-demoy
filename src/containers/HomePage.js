@@ -29,6 +29,9 @@ const HomePage = (props) => {
 
     useEffect((props) => {
         setMarginTop();
+        document.fonts.ready.then(() => {
+            setMarginTop();
+        });
         window.addEventListener('resize', setMarginTop);
         mountCallback();
         return () => {

@@ -29,7 +29,7 @@ const LoopAnimation = (translateX) =>  keyframes`
 const Banner = styled.div`
     display: inline-block;
     white-space: pre;
-    animation-duration: 5s;
+    animation-duration: 7s;
     animation-name: ${props => LoopAnimation(props.translateX)};
     animation-timing-function: linear;
     animation-delay: 0s;
