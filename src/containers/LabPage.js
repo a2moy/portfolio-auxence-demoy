@@ -16,6 +16,9 @@ const LineArray = styled.div`
     gap: 80px;
     display: flex;
     flex-direction: column;
+    @media(max-width: 970px) {
+        gap: 20px;
+    }
 `
 
 const Line = styled.div`

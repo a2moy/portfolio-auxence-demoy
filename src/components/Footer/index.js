@@ -8,6 +8,7 @@ const StyledFooterContainer = styled.footer`
     justify-content: space-between;
     background-color: ${props => props.theme.mainColor};
     padding-top: 58px;
+    padding-bottom: 58px;
 
     @media(max-width: 970px) {
         padding: 25px 15px;
