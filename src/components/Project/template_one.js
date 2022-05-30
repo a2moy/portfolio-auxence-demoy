@@ -3,6 +3,7 @@ import TmplHeader from './template_header'
 import { Content } from "../Styled"
 import { useParams } from 'react-router-dom';
 import config from '../../config';
+import { Link } from "react-router-dom";
 
 const NextProject = styled.div`
     font-size: 24px;
@@ -112,7 +113,7 @@ const TmplOne = (data) => {
                 <ImageVertical src='https://via.placeholder.com/1080x500'/>
             </ImageList>
             <Content>
-                <NextProject>{nextProjectCatch} - <a href={NextID}>{nextProjectName}</a></NextProject>
+                <NextProject>{nextProjectCatch} - <Link to={"/projects/" + NextID}>{nextProjectName}</Link></NextProject>
             </Content>
         </>
     )

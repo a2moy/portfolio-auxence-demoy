@@ -8,7 +8,6 @@ import themes from '../../theme';
 const NavbarContainer = styled.nav`
     display: flex;
     flex-direction: column;
-    z-index: 2;
 `
 
 const TopNavbar = styled.div`
@@ -31,6 +30,8 @@ const BottomNavbar = styled.div`
     height: 25px;
     width: inherit;
     display: flex;
+
+    z-index: 2;
     @media(max-width: 970px) {
         display: block;
         padding: 0px 15px;
@@ -158,6 +159,28 @@ const StyledButton = styled.a`
     }
 `
 
+const StyledButtonLink = styled(Link)`
+    text-decoration: none;
+    font-size: 15px;
+    color: #A6A4AB;
+    transition: 0.1s;
+    @media(min-width: 971px) {
+        &:hover {
+            cursor: pointer;
+            color: #040205;
+            transition: 0.2s;
+        }
+    }
+`
+
+const TitleLink = styled(Link)`
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    color: #040205;
+    text-decoration: none;
+`
+
 const StyledColorSelector = styled.div`
     display: flex;
     justify-content: space-between;
@@ -184,7 +207,7 @@ const ColorSelector = ({ setCurrentTheme }) => {
     const [isActive, setIsActive] = useState("red");
     return (
         <StyledColorSelector className='column-2'>
-            <StyledButton href="/lab">the lab</StyledButton>
+            <StyledButtonLink to="/lab">the lab</StyledButtonLink>
             <ColorChooserContainer isOpen={isOpen}>
                 <StyledButton onClick={() => { setIsOpen(!isOpen) }}>change color</StyledButton>
                 <ColorPastilContainer isOpen={isOpen}>
@@ -221,7 +244,7 @@ const Navbar = ({ setCurrentTheme }) => {
         <NavbarContainer id="nav">
             <TopNavbar className='columns-container'>
                 <TopNavbarContext className='column-1'>
-                    <Title href="/">AUXENCE DEMOY</Title>
+                    <TitleLink to="/">AUXENCE DEMOY</TitleLink>
                     <Title>DIGITAL DESIGNER &#38; ART DIRECTOR</Title>
                     <span/>
                 </TopNavbarContext>

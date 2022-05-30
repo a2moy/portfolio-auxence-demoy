@@ -43,11 +43,9 @@ const Banner = styled.div`
 
 const InfinitLoopBanner = (props) => {
     const [texte, setTexte] = useState(props.texte);
-    const [pageWidth, setPageWidth] = useState(0);
     const [texteWidth, setTexteWidth] = useState(0);
 
     const setTextResponsive = () => {
-
         const tWidth = document.getElementById('Source')?.getBoundingClientRect().width;
         const pWidth = window.innerWidth;
         let count =  pWidth/tWidth + 1;
@@ -57,21 +55,18 @@ const InfinitLoopBanner = (props) => {
             newText += props.texte;
         }
         setTexte(newText);
-        setPageWidth(pWidth);
         setTexteWidth(tWidth);
     };
 
     useEffect(() => {
         document.fonts.ready.then(() => {
-            if (pageWidth !== window.innerWidth) {
-                setTextResponsive();
-                window.addEventListener('resize', setTextResponsive);
-            }
+            setTextResponsive();
+            window.addEventListener('resize', setTextResponsive);
         });
         return () => {
             window.removeEventListener('resize', setTextResponsive);
         };
-    });
+    } , []);
 
     return (
         <BannerContainer>

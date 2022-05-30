@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ProjectArray from '../components/ProjectArray';
 import TitleAnimator from '../components/TitleAnimator';
 import InfinitLoopBanner from '../components/InfinitLoopBanner';
+import { Link } from "react-router-dom";
 import {
     IntroContainer,
     Paragraph,
@@ -28,13 +29,14 @@ const A2moyMulticolorSVG = styled.svg`
 `
 
 const HomePage = (props) => {
-    const setMarginTop = () => {
-        const height = window.innerHeight - (document.getElementById('intro')?.clientHeight + document.getElementById('nav')?.clientHeight + 250);
-        document.getElementById('logo').style.marginTop = `${height > 0 ? height : 0}px`;
-    };
-
     const mountCallback = props.mountCallback;
     const unmountCallback = props.unmountCallback;
+
+    const setMarginTop = () => {
+        const adjust = window.innerWidth > 970 ? 250 : 0.33 * window.innerWidth
+        const height = window.innerHeight - (document.getElementById('intro')?.clientHeight + document.getElementById('nav')?.clientHeight + adjust);
+        document.getElementById('logo').style.marginTop = `${height > 0 ? height : 0}px`;
+    };
 
     useEffect((props) => {
         setMarginTop();
@@ -85,7 +87,7 @@ const HomePage = (props) => {
                     <p>
                         Communicating, collaborating and sharing are the words that are part of my daily life.
                     </p>
-                    <a href="url">more here</a>
+                    <Link to="/about">more here</Link>
                 </ParagraphBot>
                 <span className='column-3'></span>
             </div>

@@ -43,6 +43,7 @@ const App = () => {
     }
 
     const pageTransitionAnimationOut = () => {
+        window.scrollTo({top: 0})
         anime({
             targets: transisitonDivRef.current,
             height: '0vh',
