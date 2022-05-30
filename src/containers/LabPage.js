@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TitleAnimator from '../components/TitleAnimator';
 import {
     Content,
@@ -37,6 +37,11 @@ const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 35%;
+    @media(max-width: 970px) {
+        width: 55%;
+        gap: 10px;
+        font-size: 10px;
+    }
 `
 
 const PostInfo = styled.div`
@@ -80,13 +85,22 @@ const BuildLines = (array, columnCount) => {
 }
 
 const LabPage = (props) => {
-
     const mountCallback = props.mountCallback;
     const unmountCallback = props.unmountCallback;
+    const [Width, setWidth] = useState(window.innerWidth);
+
+    const updateDimensions = () => {
+        const width = window.innerWidth
+        setWidth(width)
+    }
 
     useEffect(() => {
         mountCallback();
-        return unmountCallback;
+        window.addEventListener('resize', updateDimensions);
+        return () => {
+            unmountCallback();
+            window.removeEventListener('resize', updateDimensions);
+        };
     }, [mountCallback, unmountCallback]);
 
     return (
@@ -106,7 +120,7 @@ const LabPage = (props) => {
                 <span className='column-3'/>
             </IntroContainer>
             <LineArray>
-                {BuildLines(config.lab, 2)}
+                {BuildLines(config.lab, Width > 970 ? 2 : 1)}
             </LineArray>
         </Content>
     );

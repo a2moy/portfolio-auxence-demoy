@@ -8,6 +8,10 @@ const NextProject = styled.div`
     font-size: 24px;
     text-align: right;
     padding: 0px 14%;
+    @media(max-width: 970px) {
+        padding: 0px 5%;
+        font-size: 18px;
+    }
 `
 
 const Hero = styled.img`
@@ -21,10 +25,16 @@ const ImageList = styled.div`
     width: 100%;
     align-items: center;
     margin: 7vw 0px;
+    @media(max-width: 970px) {
+        gap: 5vw;
+    }
 `
 
 const ImageVertical = styled.img`
     width: 75%;
+    @media(max-width: 970px) {
+        width: 95%;
+    }
 `
 
 const LineContainer = styled.div`
@@ -33,14 +43,23 @@ const LineContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 1.5vw;
+    @media(max-width: 970px) {
+        gap: 1vw;
+    }
 `
 
 const ImageLineLong = styled.img`
     width: 54.5vw;
+    @media(max-width: 970px) {
+        width: 60vw;
+    }
 `
 
 const ImageLineSmall = styled.img`
     width: 30.5vw;
+    @media(max-width: 970px) {
+        width: 34vw;
+    }
 `
 
 const PortraitsContainer = styled.div`
@@ -49,10 +68,17 @@ const PortraitsContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 1.5vw;
+    @media(max-width: 970px) {
+        gap: 1vw;
+    }
 `
 
 const ImagePortrait = styled.img`
     width: 47.5vw;
+    flex-direction: row;
+    @media(max-width: 970px) {
+        width: 47vw;
+    }
 `
 
 const TmplOne = (data) => {

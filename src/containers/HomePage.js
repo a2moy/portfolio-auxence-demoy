@@ -8,19 +8,13 @@ import {
     Paragraph,
     PageTitle,
     Content,
+    CatchLine,
 } from '../components/Styled';
 
 const ParagraphBot = styled(Paragraph)`
     justify-content: flex-end;
     @media(max-width: 970px) {
         gap: 40px
-    }
-`
-
-const PageTitleHome = styled(PageTitle)`
-    margin-bottom: 100px;
-    @media(max-width: 970px) {
-        margin-bottom: 20px;
     }
 `
 
@@ -59,13 +53,13 @@ const HomePage = (props) => {
         <Content>
             <IntroContainer className='columns-container' id='intro'>
                 <div className='column-1'>
-                    <PageTitleHome>
+                    <PageTitle>
                         <TitleAnimator texte="DIGITAL DESIGNER &"/>
                         <TitleAnimator texte="ART DIRECTOR"/>
-                    </PageTitleHome>
-                    <p>
+                    </PageTitle>
+                    <CatchLine>
                         France based but working world wide.
-                    </p>
+                    </CatchLine>
                 </div>
                 <Paragraph className='column-2'>
                     <p>

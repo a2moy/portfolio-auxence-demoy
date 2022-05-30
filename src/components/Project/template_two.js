@@ -8,6 +8,10 @@ const NextProject = styled.div`
     font-size: 24px;
     text-align: right;
     padding: 0px 14%;
+    @media(max-width: 970px) {
+        padding: 0px 5%;
+        font-size: 18px;
+    }
 `
 
 const Hero = styled.img`
@@ -21,14 +25,23 @@ const ImageList = styled.div`
     width: 100%;
     align-items: center;
     margin: 7vw 0px;
+    @media(max-width: 970px) {
+        gap: 5vw;
+    }
 `
 
 const ImageVertical = styled.img`
     width: 96.5%;
+    @media(max-width: 970px) {
+        width: 95%;
+    }
 `
 
 const ImageFinal = styled.img`
     width: 75%;
+    @media(max-width: 970px) {
+        width: 95%;
+    }
 `
 
 const Feed = styled.div`
@@ -46,15 +59,24 @@ const Grid = styled.div`
     gap: 1.5vw;
     width: 100%;
     justify-content: center;
+    @media(max-width: 970px) {
+        gap: 1vw;
+    }
 `
 
 const ImageGrid = styled.img`
     width: 47.5vw;
+    @media(max-width: 970px) {
+        width: 47vw;
+    }
 `
 
 const EmptyGridCase = styled.div`
     width: 47.5vw;
     height: 100%;
+    @media(max-width: 970px) {
+        width: 47vw;
+    }
 `
 
 const TmplOne = (data) => {

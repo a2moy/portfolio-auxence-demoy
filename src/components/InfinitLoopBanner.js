@@ -63,7 +63,7 @@ const InfinitLoopBanner = (props) => {
 
     useEffect(() => {
         document.fonts.ready.then(() => {
-            if (pageWidth != window.innerWidth) {
+            if (pageWidth !== window.innerWidth) {
                 setTextResponsive();
                 window.addEventListener('resize', setTextResponsive);
             }

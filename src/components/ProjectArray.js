@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import config from '../config';
+import { useEffect, useState } from 'react';
 
 import {
     Array,
@@ -77,15 +78,41 @@ const ArrayLineAnimation = styled(ArrayLine).attrs({as : "button"})`
     };
 `
 
+const ProjectInfoMobile = styled.div`
+    display: flex;
+    margin-bottom: 10px;
+`
+
+const ColorLineMobile = styled.div`
+    width: 100%;
+    height: 25px;
+    background-color: ${props => props.theme.mainColor};
+`
+
 const ProjectArray = () => {
+    const [Width, setWidth] = useState(window.innerWidth);
+
+    const updateDimensions = () => {
+        const width = window.innerWidth
+        setWidth(width)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', updateDimensions);
+        return () => {
+            window.removeEventListener('resize', updateDimensions);
+        };
+    });
+
     return (
         <Array>
             <ArrayTitle>selected works</ArrayTitle>
             <ArrayLineSeparator />
             {config.selectedWorks.map((projects, index) => {
                 return (
+                    Width > 970 ?
                     <div key={index}>
-                        <ArrayLineAnimation className='columns-container' onClick={() => document.location.href="projects/" + `${index}`}>
+                        <ArrayLineAnimation className='columns-container' onClick={() => document.location.href="projects/" + index}>
                             <Column1Mask className='column-1'>
                                 <Column1Container>
                                     <ArrayLineColumn1>
@@ -110,6 +137,18 @@ const ProjectArray = () => {
                                 <ArrayTextLink>view</ArrayTextLink>
                             </div>
                         </ArrayLineAnimation>
+                        <ArrayLineSeparator />
+                    </div>
+                    :
+                    <div key={index}>
+                        <ArrayLine  onClick={() => document.location.href="projects/" + index}>
+                            <ProjectInfoMobile>
+                                <ArrayTextFirst>{projects.name}</ArrayTextFirst>
+                                <ArrayText>{projects.type}</ArrayText>
+                                <ArrayText>view</ArrayText>
+                            </ProjectInfoMobile>
+                            <ColorLineMobile/>
+                        </ArrayLine>
                         <ArrayLineSeparator />
                     </div>
                 )

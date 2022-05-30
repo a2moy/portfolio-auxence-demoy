@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { useState } from 'react';
-
 const StyledFooterContainer = styled.footer`
     display: flex;
     flex-grow: 1;
@@ -15,6 +13,7 @@ const StyledFooterContainer = styled.footer`
         padding: 25px 15px;
         flex-direction: column;
         gap: 25px;
+        justify-content: flex-start;
     }
 `
 const StyledFooterContainerText = styled.div`
@@ -89,7 +88,7 @@ const StyledCopyrights = styled.span`
 const A2LogoBlack = styled.svg`
     width: 114.59px;
     @media(max-width: 970px) {
-        width: 57px;
+        width: 15.2vw;
     }
 `
 
