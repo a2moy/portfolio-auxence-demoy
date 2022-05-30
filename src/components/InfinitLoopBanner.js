@@ -9,6 +9,10 @@ const BannerContainer = styled.div`
     margin-left: -25px;
     overflow: hidden;
     position: relative;
+    @media(max-width: 970px) {
+        margin-top: 50px;
+        font-size: 64px;
+    }
 `
 
 const SourceTexte = styled.div`

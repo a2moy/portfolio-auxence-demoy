@@ -45,12 +45,18 @@ const IntroContainer = styled.div`
     width: inherit;
     align-items: flex-start;
     margin-bottom: 70px;
+    @media(max-width: 970px) {
+        padding-top: 20px;
+    }
 `
 
 const PageTitle = styled.div`
     font-size: 5vw;
     font-weight: bold;
     color: ${props => props.theme.mainColor};
+    @media(max-width: 970px) {
+        font-size: 7.5vw;
+    }
 `
 
 const Paragraph = styled.div`
@@ -60,6 +66,9 @@ const Paragraph = styled.div`
     align-items: flex-start;
     gap: 43px;
     font-size: 18px;
+    @media(max-width: 970px) {
+        gap: 22px;
+    }
 `
 
 export {
