@@ -63,7 +63,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<HomePage                          mountCallback={() => {}} unmountCallback={StartInAnimation}/>}/>
                     <Route path="projects" element={<ProjectsPage               mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
-                    <Route path="projects/:projectId" element={<ProjectPage     mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
+                    <Route path="projects/:projectId" element={<ProjectPage     mountCallback={() => {console.log("ok");}} unmountCallback={StartInAnimation}/>} />
                     <Route path="about" element={<AboutPage                     mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
                     <Route path="contact" element={<ContactPage                 mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
                     <Route path="lab" element={<LabPage                         mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />

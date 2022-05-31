@@ -4,6 +4,7 @@ import { Content } from "../Styled"
 import { useParams } from 'react-router-dom';
 import config from '../../config';
 import { Link } from "react-router-dom";
+import { useEffect } from 'react';
 
 const NextProject = styled.div`
     font-size: 24px;
@@ -82,7 +83,15 @@ const ImagePortrait = styled.img`
     }
 `
 
-const TmplOne = (data) => {
+const TmplOne = (arg) => {
+    const mountCallback = arg.props.mountCallback;
+    const unmountCallback = arg.props.unmountCallback;
+
+    useEffect(() => {
+        mountCallback();
+        return unmountCallback;
+    }, [mountCallback, unmountCallback]);
+
     const { projectId } = useParams();
     let NextID = Number.parseInt(projectId) + 1
     let nextProjectCatch = "back to first project"
@@ -98,7 +107,7 @@ const TmplOne = (data) => {
 
     return (
         <>
-            <TmplHeader data={data} />
+            <TmplHeader data={arg} />
             <Hero src='https://via.placeholder.com/1440x600'/>
             <ImageList>
                 <ImageVertical src='https://via.placeholder.com/1080x500'/>

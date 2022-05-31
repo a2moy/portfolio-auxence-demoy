@@ -4,7 +4,7 @@ import Templates from '../components/Project';
 
 import config from '../config';
 
-const ProjectsPage = () => {
+const ProjectsPage = (props) => {
     const { projectId } = useParams();
 
     if (parseInt(projectId) >= config.projects.length) {
@@ -12,7 +12,7 @@ const ProjectsPage = () => {
     }
 
     const { templateNumber, ...data } = config.projects[projectId]
-    return Templates[`${templateNumber}`]({ ...data });
+    return Templates[`${templateNumber}`]({ ...data, props});
 }
 
 export default ProjectsPage;
