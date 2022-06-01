@@ -83,31 +83,26 @@ const ImagePortrait = styled.img`
     }
 `
 
-const TmplOne = (arg) => {
-    const mountCallback = arg.props.mountCallback;
-    const unmountCallback = arg.props.unmountCallback;
+const TmplOne = (props) => {
+    const { mountCallback, unmountCallback, ...data }  = props;
 
     useEffect(() => {
-        mountCallback();
-        return unmountCallback;
-    }, [mountCallback, unmountCallback]);
+        return () => { unmountCallback() };
+    }, [unmountCallback]);
 
     const { projectId } = useParams();
-    let NextID = Number.parseInt(projectId) + 1
+    let nextId = Number.parseInt(projectId) + 1
     let nextProjectCatch = "back to first project"
-    if (NextID < config.projects.length)
-    {
+    if (nextId < config.projects.length) {
         nextProjectCatch = "next project"
+    } else {
+        nextId = 0
     }
-    else
-    {
-        NextID = 0
-    }
-    const nextProjectName = config.projects[NextID].name
+    const nextProjectName = config.projects[nextId].name
 
     return (
         <>
-            <TmplHeader data={arg} />
+            <TmplHeader data={data} />
             <Hero src='https://via.placeholder.com/1440x600'/>
             <ImageList>
                 <ImageVertical src='https://via.placeholder.com/1080x500'/>
@@ -122,7 +117,7 @@ const TmplOne = (arg) => {
                 <ImageVertical src='https://via.placeholder.com/1080x500'/>
             </ImageList>
             <Content>
-                <NextProject>{nextProjectCatch} - <Link to={"/projects/" + NextID}>{nextProjectName}</Link></NextProject>
+                <NextProject>{nextProjectCatch} - <Link to={"/projects/" + nextId}>{nextProjectName}</Link></NextProject>
             </Content>
         </>
     )

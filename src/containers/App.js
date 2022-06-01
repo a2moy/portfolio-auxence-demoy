@@ -30,20 +30,8 @@ const App = () => {
 
     const transisitonDivRef = createRef();
 
-    const pageTransitionAnimationIn = () => {
-        anime({
-            targets: transisitonDivRef.current,
-            height: '100vh',
-            duration: 500,
-            easing: 'easeOutCubic',
-            complete: (anim) => {
-                StartOutAnimation()
-            },
-        });
-    }
-
     const pageTransitionAnimationOut = () => {
-        window.scrollTo({top: 0})
+        window.scrollTo({ top: 0 })
         anime({
             targets: transisitonDivRef.current,
             height: '0vh',
@@ -52,22 +40,31 @@ const App = () => {
         });
     }
 
-    const StartInAnimation = () => {pageTransitionAnimationIn()}
-    const StartOutAnimation = () => {pageTransitionAnimationOut()}
+    const pageTransitionAnimationIn = () => {
+        anime({
+            targets: transisitonDivRef.current,
+            height: '100vh',
+            duration: 500,
+            easing: 'easeOutCubic',
+            complete: (anim) => {
+                pageTransitionAnimationOut()
+            },
+        });
+    }
 
     return (
         <ThemeProvider theme={currentTheme}>
             <Root>
-                <PageTransition ref={transisitonDivRef}/>
+                <PageTransition ref={transisitonDivRef} />
                 <Navbar setCurrentTheme={setCurrentTheme} />
                 <Routes>
-                    <Route path="/" element={<HomePage                          mountCallback={() => {}} unmountCallback={StartInAnimation}/>}/>
-                    <Route path="projects" element={<ProjectsPage               mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
-                    <Route path="projects/:projectId" element={<ProjectPage     mountCallback={() => {console.log("ok");}} unmountCallback={StartInAnimation}/>} />
-                    <Route path="about" element={<AboutPage                     mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
-                    <Route path="contact" element={<ContactPage                 mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
-                    <Route path="lab" element={<LabPage                         mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
-                    <Route path="*" element={<PageNotFound                      mountCallback={() => {}} unmountCallback={StartInAnimation}/>} />
+                    <Route path="/" element={<HomePage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
+                    <Route path="projects" element={<ProjectsPage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
+                    <Route path="projects/:projectId" element={<ProjectPage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
+                    <Route path="about" element={<AboutPage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
+                    <Route path="contact" element={<ContactPage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
+                    <Route path="lab" element={<LabPage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
+                    <Route path="*" element={<PageNotFound mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
                 </Routes>
                 <Footer />
             </Root>

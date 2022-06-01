@@ -81,31 +81,26 @@ const EmptyGridCase = styled.div`
     }
 `
 
-const TmplOne = (arg) => {
-    const mountCallback = arg.props.mountCallback;
-    const unmountCallback = arg.props.unmountCallback;
+const TmplOne = (props) => {
+    const { mountCallback, unmountCallback, ...data }  = props;
 
     useEffect(() => {
-        mountCallback();
-        return (unmountCallback);
-    }, [mountCallback, unmountCallback]);
+        return () => { unmountCallback() };
+    }, [unmountCallback]);
 
     const { projectId } = useParams();
-    let NextID = Number.parseInt(projectId) + 1
+    let nextID = Number.parseInt(projectId) + 1
     let nextProjectCatch = "back to first project"
-    if (NextID < config.projects.length)
-    {
+    if (nextID < config.projects.length) {
         nextProjectCatch = "next project"
+    } else {
+        nextID = 0
     }
-    else
-    {
-        NextID = 0
-    }
-    const nextProjectName = config.projects[NextID].name
+    const nextProjectName = config.projects[nextID].name
 
     return (
         <>
-            <TmplHeader data={arg} />
+            <TmplHeader data={data} />
             <Hero src='https://via.placeholder.com/1440x600'/>
             <ImageList>
                 <Feed>
@@ -123,7 +118,7 @@ const TmplOne = (arg) => {
                 <ImageFinal src='https://via.placeholder.com/1080x850'/>
             </ImageList>
             <Content>
-                <NextProject>{nextProjectCatch} - <Link to={"/projects/" + NextID}>{nextProjectName}</Link></NextProject>
+                <NextProject>{nextProjectCatch} - <Link to={"/projects/" + nextID}>{nextProjectName}</Link></NextProject>
             </Content>
         </>
     )
