@@ -34,11 +34,11 @@ const HomePage = (props) => {
 
     const setMarginTop = () => {
         const adjust = window.innerWidth > 970 ? 250 : 0.33 * window.innerWidth
-        const height = window.innerHeight - (document.getElementById('intro')?.clientHeight + document.getElementById('nav')?.clientHeight + adjust);
+        const height = window.innerWidth > 970 ? window.innerHeight - (document.getElementById('intro')?.clientHeight + document.getElementById('nav')?.clientHeight + adjust) : 0;
         document.getElementById('logo').style.marginTop = `${height > 0 ? height : 0}px`;
     };
 
-    useEffect((props) => {
+    useEffect(() => {
         setMarginTop();
         document.fonts.ready.then(() => {
             setMarginTop();

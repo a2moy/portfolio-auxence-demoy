@@ -89,7 +89,7 @@ const NavigationButton = styled(Link)`
     line-height: 18px;
     color: #040205;
     font-weight: bold;
-    transition: 0.2s;
+    transition: 0.5s;
     &:hover {
         cursor: pointer;
     }
@@ -283,7 +283,7 @@ const NavButton = (props) => {
             onMouseLeave=   {() => {props.callback(null)}}
             onFocus=        {() => {props.callback(props.texte)}}
             onBlur=         {() => {props.callback(null)}}
-            style={window.innerWidth <= 970 || (props.selected == props.texte || props.selected == null) ? {opacity: '1'} : {opacity: '0.25'}}>
+            style={window.innerWidth <= 970 || (props.selected == props.texte || props.selected == null) ? {opacity: '1'} : {opacity: '0.5'}}>
             {props.texte}
         </NavigationButton>
     )

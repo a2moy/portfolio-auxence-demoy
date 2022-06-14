@@ -2,7 +2,6 @@ import { useState, createRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import styled from 'styled-components';
 import anime from 'animejs/lib/anime.es.js';
-
 import { Footer, Navbar } from '../components';
 import { ProjectsPage, AboutPage, ContactPage, HomePage, PageNotFound, ProjectPage, LabPage } from ".";
 import { ThemeProvider } from "styled-components";
