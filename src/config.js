@@ -1,6 +1,7 @@
 const config = {
     "about": {
         "professional_experiences": [
+            { "job": "designer", "date": "now", "company": "&Why", "location": "Berlin" },
             { "job": "digital designer", "date": "now", "company": "Freelance", "location": "World" },
             { "job": "product designer", "date": "2021", "company": "Powder.gg", "location": "Paris" },
             { "job": "art director junior", "date": "2021", "company": "Cher Ami", "location": "Lyon" },
