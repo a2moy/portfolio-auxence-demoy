@@ -16,12 +16,21 @@ const Error = styled.div`
     font-size: 22.2vw;
     padding-left: 25px;
     margin-top: 18vh;
+    @media(max-width: 970px) {
+        font-size: 30vw;
+        padding-left: 15px;
+    }
 `
 
 const Flex = styled.div`
     display: flex;
     flex-direction: row;
     padding: 50px 100px;
+    @media(max-width: 970px) {
+        padding: 0px 15px;
+        flex-direction: column;
+        gap: 80px;
+    }
 `
 
 const Redirect = styled.a`
@@ -31,6 +40,9 @@ const Redirect = styled.a`
 const Texte = styled.p`
     flex: 1;
     text-align: center;
+    @media(max-width: 970px) {
+        text-align: left;
+    }
 `
 
 const PageNotFound = () => {

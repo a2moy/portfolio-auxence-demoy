@@ -1,49 +1,124 @@
 import styled from 'styled-components'
 import TmplHeader from './template_header'
 import { Content } from "../Styled"
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    margin-bottom: 100px;
-`
-
-const SubContainer = styled.div`
-    display: flex;
-    gap: 25px;
-`
+import { useParams } from 'react-router-dom';
+import config from '../../config';
+import { Link } from "react-router-dom";
+import { useEffect } from 'react';
 
 const NextProject = styled.div`
+    font-size: 24px;
     text-align: right;
+    padding: 0px 14%;
+    @media(max-width: 970px) {
+        padding: 0px 5%;
+        font-size: 18px;
+    }
 `
 
-const Header = styled.div`
-    margin-bottom: 100px;
+const Hero = styled.img`
+    width: 100%;
 `
 
-const TmplOne = (data) => {
+const ImageList = styled.div`
+    display: flex;
+    gap: 13.5vw;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 7vw 0px;
+    @media(max-width: 970px) {
+        gap: 5vw;
+    }
+`
+
+const ImageVertical = styled.img`
+    width: 96.5%;
+    @media(max-width: 970px) {
+        width: 95%;
+    }
+`
+
+const ImageFinal = styled.img`
+    width: 75%;
+    @media(max-width: 970px) {
+        width: 95%;
+    }
+`
+
+const Feed = styled.div`
+    display: flex;
+    gap: 1.5vw;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+`
+
+const Grid = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5vw;
+    width: 100%;
+    justify-content: center;
+    @media(max-width: 970px) {
+        gap: 1vw;
+    }
+`
+
+const ImageGrid = styled.img`
+    width: 47.5vw;
+    @media(max-width: 970px) {
+        width: 47vw;
+    }
+`
+
+const EmptyGridCase = styled.div`
+    width: 47.5vw;
+    height: 100%;
+    @media(max-width: 970px) {
+        width: 47vw;
+    }
+`
+
+const TmplOne = (props) => {
+    const { mountCallback, unmountCallback, ...data }  = props;
+
+    useEffect(() => {
+        return () => { unmountCallback() };
+    }, [unmountCallback]);
+
+    const { projectId } = useParams();
+    let nextID = Number.parseInt(projectId) + 1
+    let nextProjectCatch = "back to first project"
+    if (nextID < config.projects.length) {
+        nextProjectCatch = "next project"
+    } else {
+        nextID = 0
+    }
+    const nextProjectName = config.projects[nextID].name
+
     return (
         <>
             <TmplHeader data={data} />
-            <Header>
-                <img src='https://via.placeholder.com/1390x500' alt='placeholder' />
-            </Header>
-            <Content> 
-                <Container>
-                    <img src='https://via.placeholder.com/1390x500' alt='placeholder' />
-                    <SubContainer>
-                        <img src='https://via.placeholder.com/683x450' alt='placeholder' />
-                        <img src='https://via.placeholder.com/683x450' alt='placeholder' />
-                    </SubContainer>
-                    <img src='https://via.placeholder.com/683x450' alt='placeholder' />
-                    <Header>
-                        <img src='https://via.placeholder.com/1390x500' alt='placeholder' />
-                    </Header>
-                    <img src='https://via.placeholder.com/1037x850' alt='placeholder' />
-                </Container>
-                <NextProject>next project - project name up to 16 ch</NextProject>
+            <Hero src='https://via.placeholder.com/1440x600'/>
+            <ImageList>
+                <Feed>
+                    <ImageVertical src='https://via.placeholder.com/1400x500'/>
+                    <Grid>
+                        <ImageGrid src='https://via.placeholder.com/685x450'/>
+                        <ImageGrid src='https://via.placeholder.com/685x450'/>
+                    </Grid>
+                    <Grid>
+                        <EmptyGridCase/>
+                        <ImageGrid src='https://via.placeholder.com/685x450'/>
+                    </Grid>
+                </Feed>
+                <Hero src='https://via.placeholder.com/1440x600'/>
+                <ImageFinal src='https://via.placeholder.com/1080x850'/>
+            </ImageList>
+            <Content>
+                <NextProject>{nextProjectCatch} - <Link to={"/projects/" + nextID}>{nextProjectName}</Link></NextProject>
             </Content>
         </>
     )

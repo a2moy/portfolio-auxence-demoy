@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import TitleAnimator from '../components/TitleAnimator';
 import {
     Content,
     IntroContainer,
@@ -15,6 +16,9 @@ const LineArray = styled.div`
     gap: 80px;
     display: flex;
     flex-direction: column;
+    @media(max-width: 970px) {
+        gap: 20px;
+    }
 `
 
 const Line = styled.div`
@@ -36,6 +40,11 @@ const PostContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 35%;
+    @media(max-width: 970px) {
+        width: 55%;
+        gap: 10px;
+        font-size: 10px;
+    }
 `
 
 const PostInfo = styled.div`
@@ -79,19 +88,30 @@ const BuildLines = (array, columnCount) => {
 }
 
 const LabPage = (props) => {
-
     const mountCallback = props.mountCallback;
     const unmountCallback = props.unmountCallback;
+    const [Width, setWidth] = useState(window.innerWidth);
+
+    const updateDimensions = () => {
+        const width = window.innerWidth
+        setWidth(width)
+    }
 
     useEffect(() => {
         mountCallback();
-        return unmountCallback;
+        window.addEventListener('resize', updateDimensions);
+        return () => {
+            unmountCallback();
+            window.removeEventListener('resize', updateDimensions);
+        };
     }, [mountCallback, unmountCallback]);
 
     return (
         <Content>
             <IntroContainer className='columns-container'>
-                <PageTitle className='column-1'>THE LAB</PageTitle>
+                <PageTitle className='column-1'>
+                    <TitleAnimator texte="THE LAB"/>
+                </PageTitle>
                 <Paragraph className='column-2'>
                     <p>
                         Here are some experiments I did in 3d, graphic design, web design, photography or many other things ...
@@ -103,7 +123,7 @@ const LabPage = (props) => {
                 <span className='column-3'/>
             </IntroContainer>
             <LineArray>
-                {BuildLines(config.lab, 2)}
+                {BuildLines(config.lab, Width > 970 ? 2 : 1)}
             </LineArray>
         </Content>
     );
