@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/www.a2moy.fr/static/css/main.24d0ecca.css",
-    "main.js": "/www.a2moy.fr/static/js/main.bb414cb6.js",
-    "static/js/787.06b48d72.chunk.js": "/www.a2moy.fr/static/js/787.06b48d72.chunk.js",
-    "static/media/PPNeueMontreal-Bold.woff": "/www.a2moy.fr/static/media/PPNeueMontreal-Bold.b44b93a780ecd8dbafec.woff",
-    "static/media/PPNeueMontreal-Regular.woff": "/www.a2moy.fr/static/media/PPNeueMontreal-Regular.2842e150d6666a9f53bb.woff",
-    "static/media/PPNeueMontreal-Bold.woff2": "/www.a2moy.fr/static/media/PPNeueMontreal-Bold.68075853bbed18d52a9c.woff2",
-    "static/media/PPNeueMontreal-Regular.woff2": "/www.a2moy.fr/static/media/PPNeueMontreal-Regular.3c7fa6d67cf69fb7dcb4.woff2",
-    "index.html": "/www.a2moy.fr/index.html",
-    "main.24d0ecca.css.map": "/www.a2moy.fr/static/css/main.24d0ecca.css.map",
-    "main.bb414cb6.js.map": "/www.a2moy.fr/static/js/main.bb414cb6.js.map",
-    "787.06b48d72.chunk.js.map": "/www.a2moy.fr/static/js/787.06b48d72.chunk.js.map"
+    "main.css": "/static/css/main.5342b527.css",
+    "main.js": "/static/js/main.22ac4a77.js",
+    "static/js/787.06b48d72.chunk.js": "/static/js/787.06b48d72.chunk.js",
+    "static/media/PPNeueMontreal-Bold.woff": "/static/media/PPNeueMontreal-Bold.b44b93a780ecd8dbafec.woff",
+    "static/media/PPNeueMontreal-Regular.woff": "/static/media/PPNeueMontreal-Regular.2842e150d6666a9f53bb.woff",
+    "static/media/PPNeueMontreal-Bold.woff2": "/static/media/PPNeueMontreal-Bold.68075853bbed18d52a9c.woff2",
+    "static/media/PPNeueMontreal-Regular.woff2": "/static/media/PPNeueMontreal-Regular.3c7fa6d67cf69fb7dcb4.woff2",
+    "index.html": "/index.html",
+    "main.5342b527.css.map": "/static/css/main.5342b527.css.map",
+    "main.22ac4a77.js.map": "/static/js/main.22ac4a77.js.map",
+    "787.06b48d72.chunk.js.map": "/static/js/787.06b48d72.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.24d0ecca.css",
-    "static/js/main.bb414cb6.js"
+    "static/css/main.5342b527.css",
+    "static/js/main.22ac4a77.js"
   ]
 }
