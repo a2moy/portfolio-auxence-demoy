@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 import COLORS from '../../colors';
 import themes from '../../theme';
+import { createPortal } from 'react-dom';
 
 const NavbarContainer = styled.nav`
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
 `
 
 const TopNavbar = styled.div`
@@ -25,13 +31,14 @@ const TopNavbar = styled.div`
     }
 `
 
+
 const BottomNavbar = styled.div`
     padding: 0px 25px;
     height: 25px;
     width: inherit;
     display: flex;
+    background-color: ${props => props.path.slice(0,10) === "/projects/" ? "rgba(255, 255, 255, 0)" :  "rgba(255, 255, 255, 1)"};
 
-    z-index: 2;
     @media(max-width: 970px) {
         display: block;
         padding: 0px 15px;
@@ -239,6 +246,7 @@ const ColorSelector = ({ setCurrentTheme }) => {
 
 const Navbar = ({ setCurrentTheme }) => {
     const [selected, setSelected] = useState(null);
+    const location = useLocation();
 
     return (
         <NavbarContainer id="nav">
@@ -260,7 +268,7 @@ const Navbar = ({ setCurrentTheme }) => {
                     </svg>
                 </Logo>
             </TopNavbar>
-            <BottomNavbar className='columns-container'>
+            <BottomNavbar className='columns-container' path={location.pathname}>
                 <SquareContainer className='column-1'>
                     <SquareWhiteOverExtend/>
                     <SquareBlack/>
@@ -283,7 +291,7 @@ const NavButton = (props) => {
             onMouseLeave=   {() => {props.callback(null)}}
             onFocus=        {() => {props.callback(props.texte)}}
             onBlur=         {() => {props.callback(null)}}
-            style={window.innerWidth <= 970 || (props.selected == props.texte || props.selected == null) ? {opacity: '1'} : {opacity: '0.5'}}>
+            style={window.innerWidth <= 970 || (props.selected === props.texte || props.selected === null) ? {opacity: '1'} : {opacity: '0.5'}}>
             {props.texte}
         </NavigationButton>
     )

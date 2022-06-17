@@ -66,7 +66,7 @@ const InfinitLoopBanner = (props) => {
         return () => {
             window.removeEventListener('resize', setTextResponsive);
         };
-    } , []);
+    });
 
     return (
         <BannerContainer>

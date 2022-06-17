@@ -9,7 +9,6 @@ import {
     ArrayText,
     ArrayLineSeparator,
     ArrayTitle,
-    ArrayLine,
     Paragraph,
 } from './Styled';
 

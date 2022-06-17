@@ -56,7 +56,7 @@ const App = () => {
             <Root>
                 <PageTransition ref={transisitonDivRef} />
                 <Navbar setCurrentTheme={setCurrentTheme} />
-                <Routes>
+                <Routes style={{zIndex: 1}}>
                     <Route path="/" element={<HomePage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
                     <Route path="projects" element={<ProjectsPage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
                     <Route path="projects/:projectId" element={<ProjectPage mountCallback={() => { }} unmountCallback={pageTransitionAnimationIn} />} />
